@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotels | SkyGo</title>
+    <link rel="stylesheet" href="css/hotels.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/logo/logo 1.png" alt="SkyGo">
+            <span>SkyGo</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="flights.html">Flights</a></li>
+            <li><a href="hotels.html" class="active">Hotels</a></li>
+            <li><a href="cabs.html">Cabs</a></li>
+            <li><a href="offers.html">Offers</a></li>
+            <li><a href="mytrips.html">My Trips</a></li>
+        </ul>
+        <div class="nav-btn">
+            <button onclick="location.href='login.html'" class="login-btn">Login</button>
+            <button onclick="location.href='signup.html'" class="signup-btn">Sign Up</button>
+        </div>
+    </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hotel-hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-particles">
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="hero-content">
+        <span class="hero-tag"><i class="fa-solid fa-hotel"></i> Premium Hotel Stays</span>
+        <h1>Find Your Perfect <span>Hotel Stay</span></h1>
+        <p>Discover luxury hotels, resorts & boutique stays at the best prices worldwide.</p>
+
+        <!-- Search Box -->
+        <div class="hotel-search">
+            <div class="search-row">
+                <div class="s-box">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div>
+                        <label>Destination</label>
+                        <input type="text" placeholder="City or Hotel name" id="destInput">
+                    </div>
+                </div>
+                <div class="s-box">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    <div>
+                        <label>Check-in</label>
+                        <input type="date" id="checkin">
+                    </div>
+                </div>
+                <div class="s-box">
+                    <i class="fa-solid fa-calendar-xmark"></i>
+                    <div>
+                        <label>Check-out</label>
+                        <input type="date" id="checkout">
+                    </div>
+                </div>
+                <div class="s-box">
+                    <i class="fa-solid fa-users"></i>
+                    <div>
+                        <label>Guests & Rooms</label>
+                        <select>
+                            <option>1 Guest, 1 Room</option>
+                            <option>2 Guests, 1 Room</option>
+                            <option>2 Guests, 2 Rooms</option>
+                            <option>Family Pack</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="search-btn" id="searchBtn">
+                    <i class="fa-solid fa-magnifying-glass"></i> Search
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FILTER BAR ===== -->
+<section class="filter-section">
+    <div class="filter-bar">
+        <span class="filter-label"><i class="fa-solid fa-sliders"></i> Filter by:</span>
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="luxury">Luxury</button>
+        <button class="filter-btn" data-filter="budget">Budget</button>
+        <button class="filter-btn" data-filter="resort">Resort</button>
+        <button class="filter-btn" data-filter="boutique">Boutique</button>
+        <div class="sort-box">
+            <i class="fa-solid fa-sort"></i>
+            <select id="sortSelect">
+                <option value="default">Sort by</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="rating">Top Rated</option>
+            </select>
+        </div>
+    </div>
+</section>
+
+<!-- ===== HOTELS GRID ===== -->
+<section class="hotels-section">
+    <div class="section-head">
+        <h2>Top Hotels for You</h2>
+        <p>Handpicked premium stays across the world's best destinations</p>
+    </div>
+
+    <div class="hotels-grid" id="hotelsGrid">
+
+        <div class="hotel-card" data-category="luxury" data-price="6999">
+            <div class="card-img">
+                <img src="images/hotels/hotel 1.jpg" alt="Royal Palace">
+                <span class="badge luxury">Luxury</span>
+                <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+            </div>
+            <div class="card-body">
+                <div class="card-top">
+                    <h3>Royal Palace</h3>
+                    <div class="rating"><i class="fa-solid fa-star"></i> 4.9 <span>(312 reviews)</span></div>
+                </div>
+                <p class="location"><i class="fa-solid fa-location-dot"></i> New Delhi, India</p>
+                <div class="amenities">
+                    <span><i class="fa-solid fa-wifi"></i> WiFi</span>
+                    <span><i class="fa-solid fa-swimming-pool"></i> Pool</span>
+                    <span><i class="fa-solid fa-utensils"></i> Dining</span>
+                    <span><i class="fa-solid fa-spa"></i> Spa</span>
+                </div>
+                <div class="card-footer">
+                    <div class="price">₹6,999 <span>/ night</span></div>
+                    <button class="book-btn" onclick="location.href='booking.html'">Book Now</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="hotel-card" data-category="luxury" data-price="9499">
+            <div class="card-img">
+                <img src="images/hotels/hotel 2.jpg" alt="Grand Resort">
+                <span class="badge luxury">Luxury</span>
+                <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+            </div>
+            <div class="card-body">
+                <div class="card-top">
+                    <h3>Grand Resort</h3>
+                    <div class="rating"><i class="fa-solid fa-star"></i> 4.8 <span>(284 reviews)</span></div>
+                </div>
+                <p class="location"><i class="fa-solid fa-location-dot"></i> Dubai, UAE</p>
+                <div class="amenities">
+                    <span><i class="fa-solid fa-wifi"></i> WiFi</span>
+                    <span><i class="fa-solid fa-swimming-pool"></i> Pool</span>
+                    <span><i class="fa-solid fa-dumbbell"></i> Gym</span>
+                    <span><i class="fa-solid fa-car"></i> Valet</span>
+                </div>
+                <div class="card-footer">
+                    <div class="price">₹9,499 <span>/ night</span></div>
+                    <button class="book-btn" onclick="location.href='booking.html'">Book Now</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="hotel-card" data-category="luxury" data-price="11999">
+            <div class="card-img">
+                <img src="images/hotels/hotel 3.jpg" alt="Sky Suites">
+                <span class="badge boutique">Boutique</span>
+                <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+            </div>
+            <div class="card-body">
+                <div class="card-top">
+                    <h3>Sky Suites</h3>
+                    <div class="rating"><i class="fa-solid fa-star"></i> 4.9 <span>(198 reviews)</span></div>
+                </div>
+                <p class="location"><i class="fa-solid fa-location-dot"></i> Paris, France</p>
+                <div class="amenities">
+                    <span><i class="fa-solid fa-wifi"></i> WiFi</span>
+                    <span><i class="fa-solid fa-concierge-bell"></i> Butler</span>
+                    <span><i class="fa-solid fa-utensils"></i> Dining</span>
+                    <span><i class="fa-solid fa-spa"></i> Spa</span>
+                </div>
+                <div class="card-footer">
+                    <div class="price">₹11,999 <span>/ night</span></div>
+                    <button class="book-btn" onclick="location.href='booking.html'">Book Now</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="hotel-card" data-category="resort" data-price="14999">
+            <div class="card-img">
+                <img src="images/hotels/hotel 4.jpg" alt="Ocean View">
+                <span class="badge resort">Resort</span>
+                <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+            </div>
+            <div class="card-body">
+                <div class="card-top">
+                    <h3>Ocean View Resort</h3>
+                    <div class="rating"><i class="fa-solid fa-star"></i> 5.0 <span>(421 reviews)</span></div>
+                </div>
+                <p class="location"><i class="fa-solid fa-location-dot"></i> Maldives</p>
+                <div class="amenities">
+                    <span><i class="fa-solid fa-wifi"></i> WiFi</span>
+                    <span><i class="fa-solid fa-swimming-pool"></i> Pool</span>
+                    <span><i class="fa-solid fa-fish"></i> Diving</span>
+                    <span><i class="fa-solid fa-spa"></i> Spa</span>
+                </div>
+                <div class="card-footer">
+                    <div class="price">₹14,999 <span>/ night</span></div>
+                    <button class="book-btn" onclick="location.href='booking.html'">Book Now</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="hotel-card" data-category="budget" data-price="5999">
+            <div class="card-img">
+                <img src="images/hotels/hotel 5.jpg" alt="Mountain Inn">
+                <span class="badge budget">Budget</span>
+                <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+            </div>
+            <div class="card-body">
+                <div class="card-top">
+                    <h3>Mountain Inn</h3>
+                    <div class="rating"><i class="fa-solid fa-star"></i> 4.6 <span>(156 reviews)</span></div>
+                </div>
+                <p class="location"><i class="fa-solid fa-location-dot"></i> Kashmir, India</p>
+                <div class="amenities">
+                    <span><i class="fa-solid fa-wifi"></i> WiFi</span>
+                    <span><i class="fa-solid fa-fire"></i> Bonfire</span>
+                    <span><i class="fa-solid fa-utensils"></i> Dining</span>
+                    <span><i class="fa-solid fa-mountain"></i> Trekking</span>
+                </div>
+                <div class="card-footer">
+                    <div class="price">₹5,999 <span>/ night</span></div>
+                    <button class="book-btn" onclick="location.href='booking.html'">Book Now</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="hotel-card" data-category="resort" data-price="8499">
+            <div class="card-img">
+                <img src="images/hotels/hotel 1.jpg" alt="Bali Paradise">
+                <span class="badge resort">Resort</span>
+                <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+            </div>
+            <div class="card-body">
+                <div class="card-top">
+                    <h3>Bali Paradise</h3>
+                    <div class="rating"><i class="fa-solid fa-star"></i> 4.7 <span>(234 reviews)</span></div>
+                </div>
+                <p class="location"><i class="fa-solid fa-location-dot"></i> Bali, Indonesia</p>
+                <div class="amenities">
+                    <span><i class="fa-solid fa-wifi"></i> WiFi</span>
+                    <span><i class="fa-solid fa-swimming-pool"></i> Pool</span>
+                    <span><i class="fa-solid fa-leaf"></i> Yoga</span>
+                    <span><i class="fa-solid fa-spa"></i> Spa</span>
+                </div>
+                <div class="card-footer">
+                    <div class="price">₹8,499 <span>/ night</span></div>
+                    <button class="book-btn" onclick="location.href='booking.html'">Book Now</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== WHY BOOK WITH US ===== -->
+<section class="why-section">
+    <div class="section-head light">
+        <h2>Why Book Hotels with SkyGo?</h2>
+        <p>Trusted by millions of travellers worldwide</p>
+    </div>
+    <div class="why-grid">
+        <div class="why-card"><i class="fa-solid fa-tags"></i><h3>Best Price Guarantee</h3><p>We match the lowest price or refund the difference.</p></div>
+        <div class="why-card"><i class="fa-solid fa-rotate-left"></i><h3>Free Cancellation</h3><p>Cancel up to 24 hours before check-in at no charge.</p></div>
+        <div class="why-card"><i class="fa-solid fa-headset"></i><h3>24×7 Support</h3><p>Our travel experts are always ready to help you.</p></div>
+        <div class="why-card"><i class="fa-solid fa-shield-halved"></i><h3>Secure Booking</h3><p>100% encrypted payments and safe booking process.</p></div>
+    </div>
+</section>
+
+<!-- ===== NEWSLETTER ===== -->
+<section class="newsletter">
+    <div class="nl-box">
+        <h2>Get Hotel Deals in Your Inbox</h2>
+        <p>Subscribe for exclusive hotel offers & travel packages.</p>
+        <div class="nl-form">
+            <input type="email" placeholder="Enter your email address">
+            <button>Subscribe <i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <div class="footer-grid">
+        <div><img src="images/logo/logo 1.png" width="50" alt=""><h2>SkyGo</h2><p>Your trusted travel partner for Flights, Hotels & Cabs.</p></div>
+        <div><h3>Quick Links</h3><a href="index.html">Home</a><a href="flights.html">Flights</a><a href="hotels.html">Hotels</a><a href="offers.html">Offers</a></div>
+        <div><h3>Support</h3><a href="#">Help Center</a><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Contact</a></div>
+        <div><h3>Follow Us</h3><div class="social-row"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-x-twitter"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div></div>
+    </div>
+    <hr>
+    <p class="copy">© 2026 SkyGo. All Rights Reserved.</p>
+</footer>
+
+<script src="js/hotels.js"></script>
+</body>
+</html>

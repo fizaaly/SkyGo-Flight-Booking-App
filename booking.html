@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking | SkyGo</title>
+    <link rel="stylesheet" href="css/booking.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="logo"><img src="images/logo/logo 1.png" alt="SkyGo"><span>SkyGo</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="flights.html">Flights</a></li>
+            <li><a href="hotels.html">Hotels</a></li>
+            <li><a href="cabs.html">Cabs</a></li>
+            <li><a href="offers.html">Offers</a></li>
+            <li><a href="mytrips.html">My Trips</a></li>
+        </ul>
+        <div class="nav-btn">
+            <button onclick="location.href='login.html'" class="login-btn">Login</button>
+            <button onclick="location.href='signup.html'" class="signup-btn">Sign Up</button>
+        </div>
+    </nav>
+</header>
+
+<!-- PROGRESS BAR -->
+<div class="booking-progress">
+    <div class="prog-step active" id="step1"><div class="step-circle"><i class="fa-solid fa-user"></i></div><span>Traveller Details</span></div>
+    <div class="prog-line"></div>
+    <div class="prog-step" id="step2"><div class="step-circle"><i class="fa-solid fa-seat-airline"></i></div><span>Seat Selection</span></div>
+    <div class="prog-line"></div>
+    <div class="prog-step" id="step3"><div class="step-circle"><i class="fa-solid fa-credit-card"></i></div><span>Payment</span></div>
+    <div class="prog-line"></div>
+    <div class="prog-step" id="step4"><div class="step-circle"><i class="fa-solid fa-ticket"></i></div><span>Confirmation</span></div>
+</div>
+
+<div class="booking-wrapper">
+
+    <!-- FORM PANEL -->
+    <div class="booking-form-panel">
+
+        <!-- STEP 1 — Traveller Details -->
+        <div class="form-section active" id="formStep1">
+            <h2><i class="fa-solid fa-user-circle"></i> Traveller Details</h2>
+            <div class="form-grid">
+                <div class="f-group">
+                    <label>First Name *</label>
+                    <div class="f-wrap"><i class="fa-solid fa-user"></i><input type="text" id="fName" placeholder="Fiza" required></div>
+                </div>
+                <div class="f-group">
+                    <label>Last Name *</label>
+                    <div class="f-wrap"><i class="fa-solid fa-user"></i><input type="text" id="lName" placeholder="Khan" required></div>
+                </div>
+                <div class="f-group">
+                    <label>Email Address *</label>
+                    <div class="f-wrap"><i class="fa-solid fa-envelope"></i><input type="email" id="bEmail" placeholder="you@example.com" required></div>
+                </div>
+                <div class="f-group">
+                    <label>Phone Number *</label>
+                    <div class="f-wrap"><i class="fa-solid fa-phone"></i><input type="tel" id="bPhone" placeholder="+91 9876543210" required></div>
+                </div>
+                <div class="f-group">
+                    <label>Date of Birth</label>
+                    <div class="f-wrap"><i class="fa-solid fa-calendar"></i><input type="date" id="bDob"></div>
+                </div>
+                <div class="f-group">
+                    <label>Gender</label>
+                    <div class="f-wrap"><i class="fa-solid fa-venus-mars"></i>
+                        <select id="bGender"><option value="">Select Gender</option><option>Male</option><option>Female</option><option>Other</option></select>
+                    </div>
+                </div>
+                <div class="f-group full">
+                    <label>Passport / Aadhaar Number</label>
+                    <div class="f-wrap"><i class="fa-solid fa-id-card"></i><input type="text" id="bDoc" placeholder="Document number (optional)"></div>
+                </div>
+            </div>
+
+            <!-- Add-ons -->
+            <h3 class="addon-title"><i class="fa-solid fa-plus-circle"></i> Add-ons</h3>
+            <div class="addons-grid">
+                <label class="addon-card"><input type="checkbox" class="addon-check" data-price="299"><div class="addon-icon"><i class="fa-solid fa-suitcase"></i></div><div><h4>Extra Baggage</h4><p>+15kg baggage allowance</p><span>+₹299</span></div></label>
+                <label class="addon-card"><input type="checkbox" class="addon-check" data-price="199"><div class="addon-icon"><i class="fa-solid fa-utensils"></i></div><div><h4>Meal Selection</h4><p>Choose your meal preference</p><span>+₹199</span></div></label>
+                <label class="addon-card"><input type="checkbox" class="addon-check" data-price="149"><div class="addon-icon"><i class="fa-solid fa-shield-halved"></i></div><div><h4>Travel Insurance</h4><p>Cover up to ₹5 lakh</p><span>+₹149</span></div></label>
+                <label class="addon-card"><input type="checkbox" class="addon-check" data-price="99"><div class="addon-icon"><i class="fa-solid fa-wifi"></i></div><div><h4>In-flight WiFi</h4><p>Stay connected onboard</p><span>+₹99</span></div></label>
+            </div>
+
+            <button class="next-btn" onclick="goToStep(2)">Continue to Seat Selection <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+        <!-- STEP 2 — Seat Selection -->
+        <div class="form-section" id="formStep2">
+            <h2><i class="fa-solid fa-chair"></i> Select Your Seat</h2>
+            <div class="seat-legend">
+                <span><i class="fa-solid fa-square seat-available"></i> Available</span>
+                <span><i class="fa-solid fa-square seat-selected"></i> Selected</span>
+                <span><i class="fa-solid fa-square seat-booked"></i> Booked</span>
+            </div>
+            <div class="plane-layout">
+                <div class="plane-nose">✈</div>
+                <div class="seat-map" id="seatMap"></div>
+            </div>
+            <p class="seat-info" id="seatInfo">No seat selected</p>
+            <div class="step-btns">
+                <button class="back-btn" onclick="goToStep(1)"><i class="fa-solid fa-arrow-left"></i> Back</button>
+                <button class="next-btn" onclick="goToStep(3)">Continue to Payment <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <!-- STEP 3 — Payment redirects -->
+        <div class="form-section" id="formStep3">
+            <h2><i class="fa-solid fa-lock"></i> Secure Payment</h2>
+            <p class="pay-info">You will be securely redirected to complete your payment.</p>
+            <div class="payment-methods">
+                <div class="pay-method" onclick="proceedPayment('card')"><i class="fa-solid fa-credit-card"></i><span>Credit / Debit Card</span><i class="fa-solid fa-chevron-right"></i></div>
+                <div class="pay-method" onclick="proceedPayment('upi')"><i class="fa-solid fa-mobile-screen"></i><span>UPI / GPay / PhonePe</span><i class="fa-solid fa-chevron-right"></i></div>
+                <div class="pay-method" onclick="proceedPayment('netbanking')"><i class="fa-solid fa-building-columns"></i><span>Net Banking</span><i class="fa-solid fa-chevron-right"></i></div>
+                <div class="pay-method" onclick="proceedPayment('wallet')"><i class="fa-solid fa-wallet"></i><span>Wallets (Paytm, etc.)</span><i class="fa-solid fa-chevron-right"></i></div>
+            </div>
+            <div class="step-btns">
+                <button class="back-btn" onclick="goToStep(2)"><i class="fa-solid fa-arrow-left"></i> Back</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SUMMARY PANEL -->
+    <div class="booking-summary">
+        <div class="summary-card">
+            <h3><i class="fa-solid fa-receipt"></i> Booking Summary</h3>
+            <div class="flight-summary">
+                <div class="flight-route">
+                    <div class="city"><h4>DEL</h4><p>New Delhi</p></div>
+                    <div class="route-mid"><i class="fa-solid fa-plane"></i><span>2h 10m</span></div>
+                    <div class="city"><h4>DXB</h4><p>Dubai</p></div>
+                </div>
+                <div class="flight-meta">
+                    <span><i class="fa-solid fa-calendar"></i> 10 Aug 2026</span>
+                    <span><i class="fa-solid fa-clock"></i> 06:30 AM</span>
+                    <span><i class="fa-solid fa-plane-up"></i> IndiGo</span>
+                </div>
+            </div>
+            <div class="price-breakdown">
+                <div class="price-row"><span>Base Fare</span><span>₹3,499</span></div>
+                <div class="price-row"><span>Taxes & Fees</span><span>₹620</span></div>
+                <div class="price-row addon-row" id="addonRow" style="display:none;"><span>Add-ons</span><span id="addonTotal">₹0</span></div>
+                <div class="price-row total"><span>Total</span><span id="grandTotal">₹4,119</span></div>
+            </div>
+            <div class="secure-badge"><i class="fa-solid fa-lock"></i> 100% Secure & Encrypted Booking</div>
+        </div>
+    </div>
+
+</div>
+
+<script src="js/booking.js"></script>
+</body>
+</html>

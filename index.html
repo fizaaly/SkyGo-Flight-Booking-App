@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SkyGo - Flight Booking</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <img src="images/logo/logo 1.png" alt="SkyGo Logo">
+
+            <span>SkyGo</span>
+
+        </div>
+
+        <ul class="nav-links">
+
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="flights.html">Flights</a></li>
+            <li><a href="hotels.html">Hotels</a></li>
+            <li><a href="cabs.html">Cabs</a></li>
+            <li><a href="offers.html">Offers</a></li>
+            <li><a href="mytrips.html">My Trips</a></li>
+
+        </ul>
+
+        <div class="nav-btn">
+
+            <button class="login-btn"
+                    onclick="location.href='login.html'">
+                Login
+            </button>
+
+            <button class="signup-btn"
+                    onclick="location.href='signup.html'">
+                Sign Up
+            </button>
+
+        </div>
+
+        <div id="user-greeting" style="display:none;color:#ffd54f;font-weight:600;font-size:14px;"></div>
+
+    </nav>
+
+</header>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="overlay"></div>
+
+    <!-- Background Slider -->
+
+    <img src="images/hero/1.jpg" class="hero-bg active" alt="">
+    <img src="images/hero/2.jpg" class="hero-bg" alt="">
+    <img src="images/hero/3.jpg" class="hero-bg" alt="">
+    <img src="images/hero/4.jpg" class="hero-bg" alt="">
+
+
+
+
+
+    <div class="hero-content">
+
+        <span class="hero-tag">
+
+            ✈ Explore • Dream • Fly
+
+        </span>
+
+        <h1 class="hero-title">
+
+            Explore Beautiful Places
+
+            <br>
+
+            <span class="typing-text">
+                With SkyGo
+            </span>
+
+        </h1>
+
+        <p class="hero-subtitle">
+
+            Book Flights, Hotels, Holiday Packages
+            and Airport Cabs at the best prices.
+
+        </p>
+
+        <!-- Search Box Start -->
+
+        <div class="search-box">
+                        <div class="trip-type">
+
+                <button class="active">One Way</button>
+                <button>Round Trip</button>
+                <button>Multi City</button>
+
+            </div>
+
+            <div class="search-grid">
+
+                <div class="input-box">
+
+                    <label>From</label>
+
+                    <input type="text"
+                           placeholder="Delhi">
+
+                </div>
+
+                <div class="swap">
+
+                    <i class="fa-solid fa-right-left"></i>
+
+                </div>
+
+                <div class="input-box">
+
+                    <label>To</label>
+
+                    <input type="text"
+                           placeholder="Dubai">
+
+                </div>
+
+                <div class="input-box">
+
+                    <label>Departure</label>
+
+                    <input type="date">
+
+                </div>
+
+                <div class="input-box">
+
+                    <label>Return</label>
+
+                    <input type="date">
+
+                </div>
+
+                <div class="input-box">
+
+                    <label>Travellers</label>
+
+                    <select>
+
+                        <option>1 Adult</option>
+                        <option>2 Adults</option>
+                        <option>Family</option>
+
+                    </select>
+
+                </div>
+
+                <div class="input-box">
+
+                    <label>Class</label>
+
+                    <select>
+
+                        <option>Economy</option>
+                        <option>Premium Economy</option>
+                        <option>Business</option>
+                        <option>First Class</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+            <button class="search-btn">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                Search Flights
+
+            </button>
+
+        </div>
+
+        <!-- Hero Stats -->
+
+        <div class="hero-stats">
+
+            <div class="stat-box">
+
+                <h2 class="counter" data-target="150">0</h2>
+
+                <p>Destinations</p>
+
+            </div>
+
+            <div class="stat-box">
+
+                <h2 class="counter" data-target="80">0</h2>
+
+                <p>Airlines</p>
+
+            </div>
+
+            <div class="stat-box">
+
+                <h2 class="counter" data-target="50000">0</h2>
+
+                <p>Happy Travellers</p>
+
+            </div>
+
+            <div class="stat-box">
+
+                <h2>24×7</h2>
+
+                <p>Support</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= POPULAR DESTINATIONS ================= -->
+
+<section class="destinations">
+
+    <div class="section-title">
+
+        <h2>Popular Destinations</h2>
+
+        <p>
+            Explore breathtaking destinations across the world
+            with exclusive SkyGo deals.
+        </p>
+
+    </div>
+
+    <div class="destination-container">
+                <!-- Destination 1 -->
+
+        <div class="destination-card">
+
+            <img src="images/destinations/goa.jpg" alt="Goa">
+
+            <div class="card-content">
+
+                <span class="badge">Trending</span>
+
+                <h3>Goa</h3>
+
+                <p>Starting ₹3,499</p>
+
+                <button>Book Now</button>
+
+            </div>
+
+        </div>
+
+        <!-- Destination 2 -->
+
+        <div class="destination-card">
+
+            <img src="images/destinations/dubai.jpg" alt="Dubai">
+
+            <div class="card-content">
+
+                <span class="badge">Hot Deal</span>
+
+                <h3>Dubai</h3>
+
+                <p>Starting ₹18,999</p>
+
+                <button>Book Now</button>
+
+            </div>
+
+        </div>
+
+        <!-- Destination 3 -->
+
+        <div class="destination-card">
+
+            <img src="images/destinations/paris.jpg" alt="Paris">
+
+            <div class="card-content">
+
+                <span class="badge">Popular</span>
+
+                <h3>Paris</h3>
+
+                <p>Starting ₹42,999</p>
+
+                <button>Book Now</button>
+
+            </div>
+
+        </div>
+
+        <!-- Destination 4 -->
+
+        <div class="destination-card">
+
+            <img src="images/destinations/kashmir.jpg" alt="Kashmir">
+
+            <div class="card-content">
+
+                <span class="badge">Best Seller</span>
+
+                <h3>Kashmir</h3>
+
+                <p>Starting ₹6,999</p>
+
+                <button>Book Now</button>
+
+            </div>
+
+        </div>
+
+        <!-- Destination 5 -->
+
+        <div class="destination-card">
+
+            <img src="images/destinations/bali.jpg" alt="Bali">
+
+            <div class="card-content">
+
+                <span class="badge">New</span>
+
+                <h3>Bali</h3>
+
+                <p>Starting ₹24,999</p>
+
+                <button>Book Now</button>
+
+            </div>
+
+        </div>
+
+        <!-- Destination 6 -->
+
+        <div class="destination-card">
+
+            <img src="images/destinations/london.jpg" alt="London">
+
+            <div class="card-content">
+
+                <span class="badge">Luxury</span>
+
+                <h3>London</h3>
+
+                <p>Starting ₹49,999</p>
+
+                <button>Book Now</button>
+
+            </div>
+
+        </div>
+
+        <!-- Destination 7 -->
+
+        <div class="destination-card">
+
+            <img src="images/destinations/maldives.jpg" alt="Maldives">
+
+            <div class="card-content">
+
+                <span class="badge">Couples</span>
+
+                <h3>Maldives</h3>
+
+                <p>Starting ₹31,999</p>
+
+                <button>Book Now</button>
+
+            </div>
+
+        </div>
+
+        <!-- Destination 8 -->
+
+        <div class="destination-card">
+
+            <img src="images/destinations/bangkok.jpg" alt="Bangkok">
+
+            <div class="card-content">
+
+                <span class="badge">Budget</span>
+
+                <h3>Bangkok</h3>
+
+                <p>Starting ₹15,999</p>
+
+                <button>Book Now</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= EXCLUSIVE OFFERS ================= -->
+
+<section class="offers">
+
+    <div class="section-title">
+
+        <h2>Exclusive Flight Deals</h2>
+
+        <p>Save more with SkyGo's latest travel offers.</p>
+
+    </div>
+
+    <div class="offer-container">
+
+        <div class="offer-card">
+
+            <img src="images/offers/offers 1.png" alt="Domestic Offer">
+
+            <div class="offer-info">
+
+                <h3>Domestic Sale</h3>
+
+                <p>Flat 25% OFF on all domestic flights.</p>
+
+                <button>Grab Deal</button>
+
+            </div>
+
+        </div>
+
+        <div class="offer-card">
+
+            <img src="images/offers/offers 2.png" alt="International Offer">
+
+            <div class="offer-info">
+
+                <h3>International Flights</h3>
+
+                <p>Save up to ₹10,000 instantly.</p>
+
+                <button>Book Now</button>
+
+            </div>
+
+        </div>
+
+        <div class="offer-card">
+
+            <img src="images/offers/offers 3.png" alt="Holiday Package">
+
+            <div class="offer-info">
+
+                <h3>Holiday Packages</h3>
+
+                <p>Special Summer Deals available.</p>
+
+                <button>Explore</button>
+
+            </div>
+
+        </div>
+
+        <div class="offer-card">
+
+            <img src="images/offers/offers 4.png" alt="Luxury Travel">
+
+            <div class="offer-info">
+
+                <h3>Luxury Travel</h3>
+
+                <p>Up to 40% OFF on premium trips.</p>
+
+                <button>View More</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= POPULAR AIRLINES ================= -->
+ <section class="airlines">
+
+    <div class="section-title">
+
+        <h2>Popular Airlines</h2>
+
+        <p>Travel with trusted airlines around the world.</p>
+
+    </div>
+
+    <div class="airline-container">
+
+        <div class="airline-card">
+            <img src="images/logo/logo 1.png" alt="SkyFly">
+            <h3>SkyFly</h3>
+        </div>
+
+        <div class="airline-card">
+            <img src="images/logo/logo 2.png" alt="AirNova">
+            <h3>AirNova</h3>
+        </div>
+
+        <div class="airline-card">
+            <img src="images/logo/logo 3.png" alt="CloudJet">
+            <h3>CloudJet</h3>
+        </div>
+
+        <div class="airline-card">
+            <img src="images/logo/logo 4.png" alt="Blue Wings">
+            <h3>Blue Wings</h3>
+        </div>
+
+        <div class="airline-card">
+            <img src="images/logo/logo 5.png" alt="Sky Express">
+            <h3>Sky Express</h3>
+        </div>
+
+        <div class="airline-card">
+            <img src="images/logo/logo 6.png" alt="Global Air">
+            <h3>Global Air</h3>
+        </div>
+
+        <div class="airline-card">
+            <img src="images/logo/logo 7.png" alt="FlyWorld">
+            <h3>FlyWorld</h3>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= HOTELS ================= -->
+
+<section class="hotels">
+
+    <div class="section-title">
+
+        <h2>Luxury Hotels</h2>
+
+        <p>Stay at premium hotels with exclusive discounts.</p>
+
+    </div>
+
+    <div class="hotel-container">
+
+        <div class="hotel-card">
+
+            <img src="images/hotels/hotel 1.jpg" alt="Hotel">
+
+            <div class="hotel-content">
+
+                <h3>Royal Palace</h3>
+
+                <p>⭐⭐⭐⭐⭐ | Delhi</p>
+
+                <span>₹6,999 / Night</span>
+
+                <button>Book Hotel</button>
+
+            </div>
+
+        </div>
+
+        <div class="hotel-card">
+
+            <img src="images/hotels/hotel 2.jpg" alt="Hotel">
+
+            <div class="hotel-content">
+
+                <h3>Grand Resort</h3>
+
+                <p>⭐⭐⭐⭐⭐ | Dubai</p>
+
+                <span>₹9,499 / Night</span>
+
+                <button>Book Hotel</button>
+
+            </div>
+
+        </div>
+
+        <div class="hotel-card">
+
+            <img src="images/hotels/hotel 3.jpg" alt="Hotel">
+
+            <div class="hotel-content">
+
+                <h3>Sky Suites</h3>
+
+                <p>⭐⭐⭐⭐⭐ | Paris</p>
+
+                <span>₹11,999 / Night</span>
+
+                <button>Book Hotel</button>
+
+            </div>
+
+        </div>
+
+        <div class="hotel-card">
+
+            <img src="images/hotels/hotel 4.jpg" alt="Hotel">
+
+            <div class="hotel-content">
+
+                <h3>Ocean View</h3>
+
+                <p>⭐⭐⭐⭐⭐ | Maldives</p>
+
+                <span>₹14,999 / Night</span>
+
+                <button>Book Hotel</button>
+
+            </div>
+
+        </div>
+
+        <div class="hotel-card">
+
+            <img src="images/hotels/hotel 5.jpg" alt="Hotel">
+
+            <div class="hotel-content">
+
+                <h3>Mountain Inn</h3>
+
+                <p>⭐⭐⭐⭐⭐ | Kashmir</p>
+
+                <span>₹5,999 / Night</span>
+
+                <button>Book Hotel</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= SERVICES ================= -->
+
+<section class="services">
+
+    <div class="section-title">
+
+        <h2>Travel Services</h2>
+
+        <p>Everything you need for a perfect journey.</p>
+
+    </div>
+
+    <div class="service-container">
+
+        <div class="service-card">
+            <img src="images/icons/1.png" alt="">
+            <h3>Flight Booking</h3>
+            <p>Easy domestic & international bookings.</p>
+        </div>
+
+        <div class="service-card">
+            <img src="images/icons/2.png" alt="">
+            <h3>Flight Tickets</h3>
+            <p>Instant ticket confirmation.</p>
+        </div>
+
+        <div class="service-card">
+            <img src="images/icons/3.png" alt="">
+            <h3>Luggage</h3>
+            <p>Extra baggage options.</p>
+        </div>
+
+        <div class="service-card">
+            <img src="images/icons/4.png" alt="">
+            <h3>Airport Transfer</h3>
+            <p>Pickup & drop services.</p>
+        </div>
+
+        <div class="service-card">
+            <img src="images/icons/5.png" alt="">
+            <h3>Flexible Dates</h3>
+            <p>Easy rescheduling anytime.</p>
+        </div>
+
+        <div class="service-card">
+            <img src="images/icons/6.png" alt="">
+            <h3>Location Guide</h3>
+            <p>Nearby airports & hotels.</p>
+        </div>
+
+        <div class="service-card">
+            <img src="images/icons/7.png" alt="">
+            <h3>Seat Selection</h3>
+            <p>Choose your favourite seat.</p>
+        </div>
+
+        <div class="service-card">
+            <img src="images/icons/8.png" alt="">
+            <h3>24×7 Support</h3>
+            <p>Always here to help you.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= NEWSLETTER ================= -->
+
+<section class="newsletter">
+
+    <div class="newsletter-box">
+
+        <h2>Get Exclusive Travel Deals</h2>
+
+        <p>
+
+            Subscribe now and receive the latest flight offers,
+            hotel discounts and holiday packages directly in your inbox.
+
+        </p>
+
+        <div class="newsletter-form">
+
+            <input type="email"
+                   placeholder="Enter your email address">
+
+            <button>
+
+                Subscribe
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-container">
+
+        <div class="footer-box">
+
+            <img src="images/logo/logo 1.png"
+                 alt="SkyGo Logo"
+                 width="60">
+
+            <h2>SkyGo</h2>
+
+            <p>
+
+                Your trusted travel partner for Flights,
+                Hotels, Holiday Packages and Airport Transfers.
+
+            </p>
+
+        </div>
+
+        <div class="footer-box">
+
+            <h3>Quick Links</h3>
+
+            <a href="index.html">Home</a>
+            <a href="flights.html">Flights</a>
+            <a href="hotels.html">Hotels</a>
+            <a href="offers.html">Offers</a>
+            <a href="mytrips.html">My Trips</a>
+
+        </div>
+
+        <div class="footer-box">
+
+            <h3>Support</h3>
+
+            <a href="#">Help Center</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Contact Us</a>
+
+        </div>
+
+        <div class="footer-box">
+
+            <h3>Follow Us</h3>
+
+            <div class="social-icons">
+
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+
+                <a href="#"><i class="fab fa-instagram"></i></a>
+
+                <a href="#"><i class="fab fa-x-twitter"></i></a>
+
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+
+                <a href="#"><i class="fab fa-youtube"></i></a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <hr>
+
+    <p class="copyright">
+
+        © 2026 SkyGo. All Rights Reserved.
+
+    </p>
+
+</footer>
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script src="js/script.js"></script>
+
+</body>
+
+</html>
+
+

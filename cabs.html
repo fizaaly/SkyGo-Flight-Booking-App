@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cabs | SkyGo</title>
+    <link rel="stylesheet" href="css/cabs.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="logo"><img src="images/logo/logo 1.png" alt="SkyGo"><span>SkyGo</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="flights.html">Flights</a></li>
+            <li><a href="hotels.html">Hotels</a></li>
+            <li><a href="cabs.html" class="active">Cabs</a></li>
+            <li><a href="offers.html">Offers</a></li>
+            <li><a href="mytrips.html">My Trips</a></li>
+        </ul>
+        <div class="nav-btn">
+            <button onclick="location.href='login.html'" class="login-btn">Login</button>
+            <button onclick="location.href='signup.html'" class="signup-btn">Sign Up</button>
+        </div>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="cab-hero">
+    <div class="hero-overlay"></div>
+    <div class="moving-road"></div>
+    <div class="hero-content">
+        <span class="hero-tag"><i class="fa-solid fa-car"></i> Airport & City Cabs</span>
+        <h1>Book a Cab, <span>Ride in Comfort</span></h1>
+        <p>Safe, affordable and on-time airport transfers & city rides across India.</p>
+
+        <div class="cab-search">
+            <div class="tab-switch">
+                <button class="tab-btn active" data-tab="oneway">One Way</button>
+                <button class="tab-btn" data-tab="roundtrip">Round Trip</button>
+                <button class="tab-btn" data-tab="hourly">Hourly Rental</button>
+            </div>
+            <div class="search-grid">
+                <div class="s-field">
+                    <i class="fa-solid fa-circle-dot"></i>
+                    <div><label>Pickup Location</label><input type="text" id="pickup" placeholder="Airport / Hotel / Address"></div>
+                </div>
+                <div class="s-field">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div><label>Drop Location</label><input type="text" id="drop" placeholder="Destination"></div>
+                </div>
+                <div class="s-field">
+                    <i class="fa-solid fa-calendar"></i>
+                    <div><label>Date & Time</label><input type="datetime-local" id="cabDate"></div>
+                </div>
+                <div class="s-field">
+                    <i class="fa-solid fa-users"></i>
+                    <div>
+                        <label>Passengers</label>
+                        <select><option>1 Passenger</option><option>2 Passengers</option><option>3 Passengers</option><option>4+ Passengers</option></select>
+                    </div>
+                </div>
+            </div>
+            <button class="search-cab-btn" id="searchCabBtn">
+                <i class="fa-solid fa-car"></i> Search Cabs
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- CAB TYPES -->
+<section class="cab-types">
+    <div class="section-head"><h2>Choose Your Ride</h2><p>From budget sedans to premium SUVs — pick what suits you</p></div>
+    <div class="cabs-grid">
+        <div class="cab-card" data-price="599">
+            <div class="cab-icon"><i class="fa-solid fa-car-side"></i></div>
+            <h3>Micro</h3>
+            <p class="cab-desc">Compact & affordable for solo travellers</p>
+            <div class="cab-specs">
+                <span><i class="fa-solid fa-users"></i> 3 Seats</span>
+                <span><i class="fa-solid fa-briefcase"></i> 1 Bag</span>
+                <span><i class="fa-solid fa-snowflake"></i> AC</span>
+            </div>
+            <div class="cab-price">Starts ₹599</div>
+            <button class="ride-btn" onclick="location.href='booking.html'">Book Ride</button>
+        </div>
+        <div class="cab-card featured" data-price="899">
+            <span class="popular-tag">Most Popular</span>
+            <div class="cab-icon"><i class="fa-solid fa-car"></i></div>
+            <h3>Sedan</h3>
+            <p class="cab-desc">Comfortable ride for families & groups</p>
+            <div class="cab-specs">
+                <span><i class="fa-solid fa-users"></i> 4 Seats</span>
+                <span><i class="fa-solid fa-briefcase"></i> 2 Bags</span>
+                <span><i class="fa-solid fa-snowflake"></i> AC</span>
+            </div>
+            <div class="cab-price">Starts ₹899</div>
+            <button class="ride-btn" onclick="location.href='booking.html'">Book Ride</button>
+        </div>
+        <div class="cab-card" data-price="1299">
+            <div class="cab-icon"><i class="fa-solid fa-truck-pickup"></i></div>
+            <h3>SUV</h3>
+            <p class="cab-desc">Spacious SUV for large groups & luggage</p>
+            <div class="cab-specs">
+                <span><i class="fa-solid fa-users"></i> 6 Seats</span>
+                <span><i class="fa-solid fa-briefcase"></i> 4 Bags</span>
+                <span><i class="fa-solid fa-snowflake"></i> AC</span>
+            </div>
+            <div class="cab-price">Starts ₹1,299</div>
+            <button class="ride-btn" onclick="location.href='booking.html'">Book Ride</button>
+        </div>
+        <div class="cab-card" data-price="1999">
+            <div class="cab-icon"><i class="fa-solid fa-star"></i></div>
+            <h3>Premium</h3>
+            <p class="cab-desc">Luxury sedan for a premium experience</p>
+            <div class="cab-specs">
+                <span><i class="fa-solid fa-users"></i> 4 Seats</span>
+                <span><i class="fa-solid fa-briefcase"></i> 3 Bags</span>
+                <span><i class="fa-solid fa-wifi"></i> WiFi</span>
+            </div>
+            <div class="cab-price">Starts ₹1,999</div>
+            <button class="ride-btn" onclick="location.href='booking.html'">Book Ride</button>
+        </div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-it-works">
+    <div class="section-head light"><h2>How It Works</h2><p>Book your cab in 3 simple steps</p></div>
+    <div class="steps-row">
+        <div class="step"><div class="step-num">01</div><i class="fa-solid fa-location-dot"></i><h3>Enter Details</h3><p>Enter pickup, drop and travel date</p></div>
+        <div class="step-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+        <div class="step"><div class="step-num">02</div><i class="fa-solid fa-car-side"></i><h3>Choose Cab</h3><p>Pick from Micro, Sedan, SUV or Premium</p></div>
+        <div class="step-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+        <div class="step"><div class="step-num">03</div><i class="fa-solid fa-check-circle"></i><h3>Confirm & Ride</h3><p>Pay securely and enjoy your ride</p></div>
+    </div>
+</section>
+
+<!-- POPULAR ROUTES -->
+<section class="routes-section">
+    <div class="section-head"><h2>Popular Cab Routes</h2><p>Most booked airport & intercity routes</p></div>
+    <div class="routes-grid">
+        <div class="route-card"><div class="route-cities"><span>Delhi</span><i class="fa-solid fa-right-long"></i><span>Agra</span></div><p>~3h 30m • 230 km</p><div class="route-price">₹1,899</div><button onclick="location.href='booking.html'">Book Now</button></div>
+        <div class="route-card"><div class="route-cities"><span>Mumbai</span><i class="fa-solid fa-right-long"></i><span>Pune</span></div><p>~2h 30m • 150 km</p><div class="route-price">₹1,199</div><button onclick="location.href='booking.html'">Book Now</button></div>
+        <div class="route-card"><div class="route-cities"><span>Bengaluru</span><i class="fa-solid fa-right-long"></i><span>Mysuru</span></div><p>~3h • 145 km</p><div class="route-price">₹1,099</div><button onclick="location.href='booking.html'">Book Now</button></div>
+        <div class="route-card"><div class="route-cities"><span>IGI Airport</span><i class="fa-solid fa-right-long"></i><span>Delhi City</span></div><p>~45 min • 20 km</p><div class="route-price">₹699</div><button onclick="location.href='booking.html'">Book Now</button></div>
+        <div class="route-card"><div class="route-cities"><span>Mumbai Airport</span><i class="fa-solid fa-right-long"></i><span>South Mumbai</span></div><p>~1h • 28 km</p><div class="route-price">₹799</div><button onclick="location.href='booking.html'">Book Now</button></div>
+        <div class="route-card"><div class="route-cities"><span>Chennai</span><i class="fa-solid fa-right-long"></i><span>Pondicherry</span></div><p>~2h 45m • 165 km</p><div class="route-price">₹1,299</div><button onclick="location.href='booking.html'">Book Now</button></div>
+    </div>
+</section>
+
+<!-- WHY CHOOSE -->
+<section class="why-cabs">
+    <div class="section-head light"><h2>Why Choose SkyGo Cabs?</h2><p>Trusted by millions of travellers</p></div>
+    <div class="why-grid">
+        <div class="why-card"><i class="fa-solid fa-shield-halved"></i><h3>Safe & Verified</h3><p>All drivers are background verified and trained.</p></div>
+        <div class="why-card"><i class="fa-solid fa-clock"></i><h3>Always On Time</h3><p>Guaranteed pickup within the scheduled time.</p></div>
+        <div class="why-card"><i class="fa-solid fa-tags"></i><h3>Best Prices</h3><p>Transparent pricing with no hidden charges.</p></div>
+        <div class="why-card"><i class="fa-solid fa-headset"></i><h3>24×7 Support</h3><p>Live chat and call support throughout your ride.</p></div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-grid">
+        <div><img src="images/logo/logo 1.png" width="50" alt=""><h2>SkyGo</h2><p>Your trusted travel partner.</p></div>
+        <div><h3>Quick Links</h3><a href="index.html">Home</a><a href="flights.html">Flights</a><a href="hotels.html">Hotels</a><a href="cabs.html">Cabs</a></div>
+        <div><h3>Support</h3><a href="#">Help Center</a><a href="#">Privacy Policy</a><a href="#">Contact</a></div>
+        <div><h3>Follow Us</h3><div class="social-row"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-x-twitter"></i></a></div></div>
+    </div>
+    <hr><p class="copy">© 2026 SkyGo. All Rights Reserved.</p>
+</footer>
+
+<script src="js/cabs.js"></script>
+</body>
+</html>

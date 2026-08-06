@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offers | SkyGo</title>
+    <link rel="stylesheet" href="css/offers.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="logo"><img src="images/logo/logo 1.png" alt="SkyGo"><span>SkyGo</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="flights.html">Flights</a></li>
+            <li><a href="hotels.html">Hotels</a></li>
+            <li><a href="cabs.html">Cabs</a></li>
+            <li><a href="offers.html" class="active">Offers</a></li>
+            <li><a href="mytrips.html">My Trips</a></li>
+        </ul>
+        <div class="nav-btn">
+            <button onclick="location.href='login.html'" class="login-btn">Login</button>
+            <button onclick="location.href='signup.html'" class="signup-btn">Sign Up</button>
+        </div>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="offers-hero">
+    <div class="hero-overlay"></div>
+    <div class="confetti-wrap" id="confetti"></div>
+    <div class="hero-content">
+        <span class="hero-tag"><i class="fa-solid fa-percent"></i> Exclusive Deals</span>
+        <h1>Hot Offers & <span>Travel Deals</span></h1>
+        <p>Save big on flights, hotels and holiday packages. Limited time deals — grab before they expire!</p>
+        <div class="countdown-row">
+            <div class="countdown-label"><i class="fa-solid fa-fire"></i> Flash Sale ends in:</div>
+            <div class="countdown-timer">
+                <div class="time-box"><span id="hours">00</span><label>Hours</label></div>
+                <span class="sep">:</span>
+                <div class="time-box"><span id="minutes">00</span><label>Mins</label></div>
+                <span class="sep">:</span>
+                <div class="time-box"><span id="seconds">00</span><label>Secs</label></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FILTER TABS -->
+<section class="filter-section">
+    <div class="filter-bar">
+        <span class="filter-label"><i class="fa-solid fa-filter"></i> Category:</span>
+        <button class="filter-btn active" data-cat="all">All Deals</button>
+        <button class="filter-btn" data-cat="flight">Flights</button>
+        <button class="filter-btn" data-cat="hotel">Hotels</button>
+        <button class="filter-btn" data-cat="package">Packages</button>
+        <button class="filter-btn" data-cat="cab">Cabs</button>
+    </div>
+</section>
+
+<!-- OFFERS GRID -->
+<section class="offers-section">
+    <div class="section-head"><h2>Today's Best Deals</h2><p>Handpicked offers updated daily</p></div>
+    <div class="offers-grid" id="offersGrid">
+
+        <div class="offer-card" data-cat="flight">
+            <div class="offer-img"><img src="images/offers/offers 1.png" alt="Domestic Sale"><div class="discount-badge">25% OFF</div></div>
+            <div class="offer-body">
+                <span class="offer-tag">✈ Flights</span>
+                <h3>Domestic Flight Sale</h3>
+                <p>Flat 25% off on all domestic routes. Book now and travel anytime this season.</p>
+                <div class="coupon-row"><span class="coupon">SKYDOM25</span><button class="copy-btn" data-code="SKYDOM25"><i class="fa-regular fa-copy"></i> Copy</button></div>
+                <div class="offer-footer"><span class="expiry"><i class="fa-solid fa-clock"></i> Expires: 31 Aug 2026</span><button class="grab-btn" onclick="location.href='flights.html'">Grab Deal <i class="fa-solid fa-arrow-right"></i></button></div>
+            </div>
+        </div>
+
+        <div class="offer-card featured" data-cat="flight">
+            <div class="offer-img"><img src="images/offers/offers 2.png" alt="International"><div class="discount-badge">₹10K OFF</div></div>
+            <div class="offer-body">
+                <span class="offer-tag">🌍 International</span>
+                <h3>International Flights</h3>
+                <p>Save up to ₹10,000 instantly on international bookings via SkyGo.</p>
+                <div class="coupon-row"><span class="coupon">SKYINTL10K</span><button class="copy-btn" data-code="SKYINTL10K"><i class="fa-regular fa-copy"></i> Copy</button></div>
+                <div class="offer-footer"><span class="expiry"><i class="fa-solid fa-clock"></i> Expires: 15 Sep 2026</span><button class="grab-btn" onclick="location.href='flights.html'">Grab Deal <i class="fa-solid fa-arrow-right"></i></button></div>
+            </div>
+        </div>
+
+        <div class="offer-card" data-cat="package">
+            <div class="offer-img"><img src="images/offers/offers 3.png" alt="Holiday"><div class="discount-badge">30% OFF</div></div>
+            <div class="offer-body">
+                <span class="offer-tag">🏖 Holiday Package</span>
+                <h3>Summer Holiday Packages</h3>
+                <p>Book flight + hotel combos and save up to 30% on summer holiday packages.</p>
+                <div class="coupon-row"><span class="coupon">SKYSUMMER30</span><button class="copy-btn" data-code="SKYSUMMER30"><i class="fa-regular fa-copy"></i> Copy</button></div>
+                <div class="offer-footer"><span class="expiry"><i class="fa-solid fa-clock"></i> Expires: 20 Aug 2026</span><button class="grab-btn" onclick="location.href='booking.html'">Grab Deal <i class="fa-solid fa-arrow-right"></i></button></div>
+            </div>
+        </div>
+
+        <div class="offer-card" data-cat="hotel">
+            <div class="offer-img"><img src="images/offers/offers 4.png" alt="Luxury"><div class="discount-badge">40% OFF</div></div>
+            <div class="offer-body">
+                <span class="offer-tag">🏨 Hotels</span>
+                <h3>Luxury Hotel Stays</h3>
+                <p>Up to 40% off on premium hotel stays across Dubai, Paris, Maldives & more.</p>
+                <div class="coupon-row"><span class="coupon">SKYLUX40</span><button class="copy-btn" data-code="SKYLUX40"><i class="fa-regular fa-copy"></i> Copy</button></div>
+                <div class="offer-footer"><span class="expiry"><i class="fa-solid fa-clock"></i> Expires: 10 Sep 2026</span><button class="grab-btn" onclick="location.href='hotels.html'">Grab Deal <i class="fa-solid fa-arrow-right"></i></button></div>
+            </div>
+        </div>
+
+        <div class="offer-card" data-cat="cab">
+            <div class="offer-img"><img src="images/offers/offers 1.png" alt="Cab Offer"><div class="discount-badge">20% OFF</div></div>
+            <div class="offer-body">
+                <span class="offer-tag">🚗 Cabs</span>
+                <h3>Airport Transfer Deals</h3>
+                <p>Get 20% off on your first airport cab booking with SkyGo.</p>
+                <div class="coupon-row"><span class="coupon">SKYCAB20</span><button class="copy-btn" data-code="SKYCAB20"><i class="fa-regular fa-copy"></i> Copy</button></div>
+                <div class="offer-footer"><span class="expiry"><i class="fa-solid fa-clock"></i> Expires: 30 Sep 2026</span><button class="grab-btn" onclick="location.href='cabs.html'">Grab Deal <i class="fa-solid fa-arrow-right"></i></button></div>
+            </div>
+        </div>
+
+        <div class="offer-card" data-cat="package">
+            <div class="offer-img"><img src="images/offers/offers 2.png" alt="Couple Package"><div class="discount-badge">35% OFF</div></div>
+            <div class="offer-body">
+                <span class="offer-tag">💑 Couple Package</span>
+                <h3>Honeymoon Specials</h3>
+                <p>35% off on couple packages to Maldives, Bali & Paris. Limited seats!</p>
+                <div class="coupon-row"><span class="coupon">SKYHONEY35</span><button class="copy-btn" data-code="SKYHONEY35"><i class="fa-regular fa-copy"></i> Copy</button></div>
+                <div class="offer-footer"><span class="expiry"><i class="fa-solid fa-clock"></i> Expires: 25 Aug 2026</span><button class="grab-btn" onclick="location.href='booking.html'">Grab Deal <i class="fa-solid fa-arrow-right"></i></button></div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- PROMO BANNER -->
+<section class="promo-banner">
+    <div class="promo-content">
+        <h2>🎁 Refer & Earn ₹500</h2>
+        <p>Refer a friend to SkyGo and earn ₹500 travel credits on their first booking!</p>
+        <button onclick="showToast('🔗 Referral link copied!','success')">Get Referral Link <i class="fa-solid fa-share-nodes"></i></button>
+    </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+    <div class="nl-box">
+        <h2>Never Miss a Deal</h2>
+        <p>Subscribe to get exclusive offers straight to your inbox.</p>
+        <div class="nl-form"><input type="email" placeholder="Enter your email"><button>Subscribe <i class="fa-solid fa-bell"></i></button></div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-grid">
+        <div><img src="images/logo/logo 1.png" width="50" alt=""><h2>SkyGo</h2><p>Your trusted travel partner.</p></div>
+        <div><h3>Quick Links</h3><a href="index.html">Home</a><a href="flights.html">Flights</a><a href="hotels.html">Hotels</a><a href="offers.html">Offers</a></div>
+        <div><h3>Support</h3><a href="#">Help Center</a><a href="#">Privacy Policy</a><a href="#">Contact</a></div>
+        <div><h3>Follow Us</h3><div class="social-row"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-x-twitter"></i></a></div></div>
+    </div>
+    <hr><p class="copy">© 2026 SkyGo. All Rights Reserved.</p>
+</footer>
+
+<script src="js/offers.js"></script>
+</body>
+</html>

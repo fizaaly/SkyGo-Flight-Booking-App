@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Flights | SkyGo</title>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="css/flights.css">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+<nav class="navbar">
+
+<div class="logo">
+
+<i class="fa-solid fa-plane"></i>
+
+<span>SkyGo</span>
+
+</div>
+
+<ul class="nav-links">
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="flights.html" class="active">Flights</a></li>
+
+<li><a href="hotels.html">Hotels</a></li>
+
+<li><a href="cabs.html">Cabs</a></li>
+
+<li><a href="offers.html">Offers</a></li>
+
+<li><a href="mytrips.html">My Trips</a></li>
+
+</ul>
+
+<div class="nav-btn">
+
+<button class="login-btn" onclick="location.href='login.html'">Login</button>
+
+<button class="signup-btn" onclick="location.href='signup.html'">Sign Up</button>
+
+</div>
+
+</nav>
+
+</header>
+
+
+
+<!-- ================= HERO ================= -->
+
+<section class="flight-hero">
+
+<!-- Background Slider -->
+<img src="images/flights/flight 1.jpg" class="hero-bg active" alt="">
+<img src="images/flights/flight 2.jpg" class="hero-bg" alt="">
+<img src="images/flights/flight 3.jpg" class="hero-bg" alt="">
+<img src="images/flights/flight 4.jpg" class="hero-bg" alt="">
+<img src="images/flights/flight 5.jpg" class="hero-bg" alt="">
+
+<!-- Floating particles -->
+<div class="hero-particles">
+    <span></span><span></span><span></span>
+    <span></span><span></span><span></span>
+</div>
+
+<div class="overlay"></div>
+
+<div class="hero-content">
+
+<h1>
+
+Find Your Perfect Flight ✈️
+
+</h1>
+
+<p>
+
+Search and compare flights from hundreds of airlines at the best prices.
+
+</p>
+
+</div>
+
+<!-- Slide dots -->
+<div class="slide-dots" id="slideDots"></div>
+
+</section>
+
+
+
+<!-- ================= SEARCH ================= -->
+
+<section class="search-section">
+
+<div class="search-card">
+
+<div class="trip-type">
+
+<button class="active">
+
+One Way
+
+</button>
+
+<button>
+
+Round Trip
+
+</button>
+
+<button>
+
+Multi City
+
+</button>
+
+</div>
+
+<div class="search-grid">
+
+<div class="input-box">
+
+<label>
+
+From
+
+</label>
+
+<input
+type="text"
+placeholder="Delhi">
+
+</div>
+
+<div class="input-box">
+
+<label>
+
+To
+
+</label>
+
+<input
+type="text"
+placeholder="Mumbai">
+
+</div>
+
+<div class="input-box">
+
+<label>
+
+Departure
+
+</label>
+
+<input type="date">
+
+</div>
+
+<div class="input-box">
+
+<label>
+
+Return
+
+</label>
+
+<input type="date">
+
+</div>
+
+<div class="input-box">
+
+<label>
+
+Travellers
+
+</label>
+
+<select>
+
+<option>1 Adult</option>
+<option>2 Adults</option>
+<option>3 Adults</option>
+<option>Family</option>
+
+</select>
+
+</div>
+
+<div class="input-box">
+
+<label>
+
+Cabin Class
+
+</label>
+
+<select>
+
+<option>Economy</option>
+<option>Premium Economy</option>
+<option>Business</option>
+<option>First Class</option>
+
+</select>
+
+</div>
+
+</div>
+
+<button class="search-btn">
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+Search Flights
+
+</button>
+
+</div>
+
+</section>
+<!-- ================= POPULAR AIRLINES ================= -->
+
+<section class="popular-airlines">
+
+    <h2>Popular Airlines</h2>
+
+    <p>Choose from India's and the world's most trusted airlines.</p>
+
+    <div class="airline-container">
+
+        <div class="airline-card">
+            <img src="images/flights/flight 1.jpg" alt="IndiGo">
+            <div class="card-info"><h3>IndiGo</h3><span>Starting ₹2,999</span></div>
+        </div>
+
+        <div class="airline-card">
+            <img src="images/flights/flight 2.jpg" alt="Air India">
+            <div class="card-info"><h3>Air India</h3><span>Starting ₹3,499</span></div>
+        </div>
+
+        <div class="airline-card">
+            <img src="images/flights/flight 3.jpg" alt="Akasa Air">
+            <div class="card-info"><h3>Akasa Air</h3><span>Starting ₹2,799</span></div>
+        </div>
+
+        <div class="airline-card">
+            <img src="images/flights/flight 4.jpg" alt="Emirates">
+            <div class="card-info"><h3>Emirates</h3><span>International</span></div>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FLIGHT DEALS ================= -->
+
+<section class="flight-deals">
+
+    <h2>Today's Best Flight Deals</h2>
+
+    <p>Grab exciting offers before they expire.</p>
+
+    <div class="deal-container">
+
+        <div class="deal-card">
+
+            <h3>Delhi → Mumbai</h3>
+
+            <p class="price">₹3,499</p>
+
+            <p>Non Stop • 2h 10m</p>
+
+            <button>Book Now</button>
+
+        </div>
+
+        <div class="deal-card">
+
+            <h3>Bengaluru → Goa</h3>
+
+            <p class="price">₹2,999</p>
+
+            <p>Non Stop • 1h 20m</p>
+
+            <button>Book Now</button>
+
+        </div>
+
+        <div class="deal-card">
+
+            <h3>Mumbai → Dubai</h3>
+
+            <p class="price">₹18,999</p>
+
+            <p>Direct • 3h 40m</p>
+
+            <button>Book Now</button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= BEST DESTINATIONS ================= -->
+
+<section class="destinations">
+
+    <h2>Best Destinations</h2>
+
+    <p>Travel to the world's most loved places.</p>
+
+    <div class="destination-container">
+
+        <div class="destination-card">
+
+            <img src="images/destinations/goa.jpg" alt="Goa">
+
+            <div class="card-content">
+
+                <h3>Goa</h3>
+
+                <p>Starting ₹3,499</p>
+
+                <button>Explore</button>
+
+            </div>
+
+        </div>
+
+        <div class="destination-card">
+
+            <img src="images/destinations/dubai.jpg" alt="Dubai">
+
+            <div class="card-content">
+
+                <h3>Dubai</h3>
+
+                <p>Starting ₹18,999</p>
+
+                <button>Explore</button>
+
+            </div>
+
+        </div>
+
+        <div class="destination-card">
+
+            <img src="images/destinations/paris.jpg" alt="Paris">
+
+            <div class="card-content">
+
+                <h3>Paris</h3>
+
+                <p>Starting ₹42,999</p>
+
+                <button>Explore</button>
+
+            </div>
+
+        </div>
+
+        <div class="destination-card">
+
+            <img src="images/destinations/kashmir.jpg" alt="Kashmir">
+
+            <div class="card-content">
+
+                <h3>Kashmir</h3>
+
+                <p>Starting ₹6,999</p>
+
+                <button>Explore</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= AVAILABLE FLIGHTS ================= -->
+
+<section class="available-flights">
+
+    <h2>Available Flights</h2>
+
+    <p>Compare flights and choose the best option for your trip.</p>
+
+    <div class="flight-list">
+
+        <div class="flight-card">
+
+            <div>
+
+                <h3>IndiGo</h3>
+
+                <p>Delhi → Mumbai</p>
+
+            </div>
+
+            <div>
+
+                <h4>06:30 AM</h4>
+
+                <span>2h 10m</span>
+
+            </div>
+
+            <div>
+
+                <h3>₹3,499</h3>
+
+                <button>Book</button>
+
+            </div>
+
+        </div>
+
+        <div class="flight-card">
+
+            <div>
+
+                <h3>Air India</h3>
+
+                <p>Mumbai → Bengaluru</p>
+
+            </div>
+
+            <div>
+
+                <h4>09:45 AM</h4>
+
+                <span>1h 55m</span>
+
+            </div>
+
+            <div>
+
+                <h3>₹4,299</h3>
+
+                <button>Book</button>
+
+            </div>
+
+        </div>
+
+        <div class="flight-card">
+
+            <div>
+
+                <h3>Akasa Air</h3>
+
+                <p>Delhi → Goa</p>
+
+            </div>
+
+            <div>
+
+                <h4>03:15 PM</h4>
+
+                <span>2h 35m</span>
+
+            </div>
+
+            <div>
+
+                <h3>₹3,899</h3>
+
+                <button>Book</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= WHY CHOOSE US ================= -->
+
+<section class="why-us">
+
+    <h2>Why Choose SkyGo?</h2>
+
+    <div class="why-container">
+
+        <div class="why-card">
+
+            <i class="fa-solid fa-tags"></i>
+
+            <h3>Best Prices</h3>
+
+            <p>Get the lowest airfare with exclusive discounts and daily offers.</p>
+
+        </div>
+
+        <div class="why-card">
+
+            <i class="fa-solid fa-headset"></i>
+
+            <h3>24×7 Support</h3>
+
+            <p>Our support team is available anytime to help you during your journey.</p>
+
+        </div>
+
+        <div class="why-card">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            <h3>Secure Booking</h3>
+
+            <p>Your payment and personal information are protected with high security.</p>
+
+        </div>
+
+        <div class="why-card">
+
+            <i class="fa-solid fa-plane-circle-check"></i>
+
+            <h3>Trusted Airlines</h3>
+
+            <p>Book flights from India's and the world's leading airlines.</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= CUSTOMER REVIEWS ================= -->
+
+<section class="reviews">
+
+    <h2>What Our Customers Say</h2>
+
+    <div class="review-container">
+
+        <div class="review-card">
+
+            <p>
+                "Very easy booking experience and excellent flight deals."
+            </p>
+
+            <h4>- Rahul Sharma</h4>
+
+        </div>
+
+        <div class="review-card">
+
+            <p>
+                "Booked my Dubai vacation within minutes. Highly recommended!"
+            </p>
+
+            <h4>- Priya Singh</h4>
+
+        </div>
+
+        <div class="review-card">
+
+            <p>
+                "Modern design, smooth booking process and great support."
+            </p>
+
+            <h4>- Ayesha Khan</h4>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= NEWSLETTER ================= -->
+
+<section class="newsletter">
+
+    <h2>Get Exclusive Flight Deals</h2>
+
+    <p>Subscribe to receive the latest offers and travel updates.</p>
+
+    <div class="newsletter-box">
+
+        <input
+            type="email"
+            placeholder="Enter your email">
+
+        <button>
+
+            Subscribe
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <div>
+
+            <h2>
+
+                ✈️ SkyGo
+
+            </h2>
+
+            <p>
+
+                Your trusted travel partner for flights around the world.
+
+            </p>
+
+        </div>
+
+        <div>
+
+            <h3>Quick Links</h3>
+
+            <p>Flights</p>
+
+            <p>Hotels</p>
+
+            <p>Cabs</p>
+
+            <p>Offers</p>
+
+        </div>
+
+        <div>
+
+            <h3>Support</h3>
+
+            <p>Help Center</p>
+
+            <p>Privacy Policy</p>
+
+            <p>Terms & Conditions</p>
+
+        </div>
+
+        <div>
+
+            <h3>Follow Us</h3>
+
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-x-twitter"></i>
+            <i class="fa-brands fa-linkedin"></i>
+
+        </div>
+
+    </div>
+
+    <hr>
+
+    <p class="copyright">
+
+        © 2026 SkyGo. All Rights Reserved.
+
+    </p>
+
+</footer>
+
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script src="js/flights.js"></script>
+
+</body>
+
+</html>

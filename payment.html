@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment | SkyGo</title>
+    <link rel="stylesheet" href="css/payment.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="logo"><img src="images/logo/logo 1.png" alt="SkyGo"><span>SkyGo</span></div>
+        <div class="secure-label"><i class="fa-solid fa-lock"></i> Secure Payment Gateway</div>
+    </nav>
+</header>
+
+<div class="payment-page">
+
+    <div class="payment-left">
+        <h2><i class="fa-solid fa-credit-card"></i> Complete Your Payment</h2>
+        <p class="pay-sub">Choose a payment method and complete your booking securely.</p>
+
+        <!-- Method Tabs -->
+        <div class="method-tabs">
+            <button class="method-tab active" data-tab="card"><i class="fa-solid fa-credit-card"></i> Card</button>
+            <button class="method-tab" data-tab="upi"><i class="fa-solid fa-mobile-screen"></i> UPI</button>
+            <button class="method-tab" data-tab="netbanking"><i class="fa-solid fa-building-columns"></i> Net Banking</button>
+            <button class="method-tab" data-tab="wallet"><i class="fa-solid fa-wallet"></i> Wallet</button>
+        </div>
+
+        <!-- Card Payment -->
+        <div class="pay-form active" id="tab-card">
+            <div class="card-preview">
+                <div class="card-front" id="cardFront">
+                    <div class="card-chip"><i class="fa-solid fa-microchip"></i></div>
+                    <div class="card-number-display" id="cardNumDisplay">•••• •••• •••• ••••</div>
+                    <div class="card-bottom">
+                        <div><label>Card Holder</label><span id="cardNameDisplay">YOUR NAME</span></div>
+                        <div><label>Expires</label><span id="cardExpDisplay">MM/YY</span></div>
+                    </div>
+                    <div class="card-logo"><i class="fa-brands fa-cc-visa"></i></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Card Number</label>
+                <div class="inp-wrap"><i class="fa-solid fa-credit-card"></i><input type="text" id="cardNum" placeholder="1234 5678 9012 3456" maxlength="19"></div>
+            </div>
+            <div class="form-group">
+                <label>Card Holder Name</label>
+                <div class="inp-wrap"><i class="fa-solid fa-user"></i><input type="text" id="cardName" placeholder="Name on card"></div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Expiry Date</label>
+                    <div class="inp-wrap"><i class="fa-regular fa-calendar"></i><input type="text" id="cardExp" placeholder="MM/YY" maxlength="5"></div>
+                </div>
+                <div class="form-group">
+                    <label>CVV</label>
+                    <div class="inp-wrap"><i class="fa-solid fa-lock"></i><input type="password" id="cardCvv" placeholder="•••" maxlength="3"></div>
+                </div>
+            </div>
+            <label class="save-card"><input type="checkbox"> Save card for future payments</label>
+            <button class="pay-btn" onclick="processPayment()">
+                <i class="fa-solid fa-lock"></i> Pay ₹4,119 Securely
+            </button>
+        </div>
+
+        <!-- UPI Payment -->
+        <div class="pay-form" id="tab-upi">
+            <div class="upi-apps">
+                <div class="upi-app" onclick="selectUPI(this)"><i class="fa-solid fa-g" style="color:#4285f4"></i><span>GPay</span></div>
+                <div class="upi-app" onclick="selectUPI(this)"><i class="fa-solid fa-p" style="color:#5f259f"></i><span>PhonePe</span></div>
+                <div class="upi-app" onclick="selectUPI(this)"><i class="fa-solid fa-p" style="color:#00baf2"></i><span>Paytm</span></div>
+                <div class="upi-app" onclick="selectUPI(this)"><i class="fa-solid fa-b" style="color:#ff6600"></i><span>BHIM</span></div>
+            </div>
+            <div class="divider"><span>or enter UPI ID</span></div>
+            <div class="form-group">
+                <label>UPI ID</label>
+                <div class="inp-wrap"><i class="fa-solid fa-at"></i><input type="text" id="upiId" placeholder="yourname@upi"></div>
+            </div>
+            <button class="pay-btn" onclick="processPayment()">
+                <i class="fa-solid fa-lock"></i> Pay ₹4,119 via UPI
+            </button>
+        </div>
+
+        <!-- Net Banking -->
+        <div class="pay-form" id="tab-netbanking">
+            <div class="bank-grid">
+                <div class="bank-card" onclick="selectBank(this)"><i class="fa-solid fa-building-columns"></i><span>SBI</span></div>
+                <div class="bank-card" onclick="selectBank(this)"><i class="fa-solid fa-building-columns"></i><span>HDFC</span></div>
+                <div class="bank-card" onclick="selectBank(this)"><i class="fa-solid fa-building-columns"></i><span>ICICI</span></div>
+                <div class="bank-card" onclick="selectBank(this)"><i class="fa-solid fa-building-columns"></i><span>Axis</span></div>
+                <div class="bank-card" onclick="selectBank(this)"><i class="fa-solid fa-building-columns"></i><span>Kotak</span></div>
+                <div class="bank-card" onclick="selectBank(this)"><i class="fa-solid fa-building-columns"></i><span>PNB</span></div>
+            </div>
+            <button class="pay-btn" onclick="processPayment()">
+                <i class="fa-solid fa-lock"></i> Continue to Net Banking
+            </button>
+        </div>
+
+        <!-- Wallet -->
+        <div class="pay-form" id="tab-wallet">
+            <div class="wallet-grid">
+                <div class="wallet-card" onclick="selectWallet(this)"><i class="fa-solid fa-wallet" style="color:#00baf2"></i><span>Paytm Wallet</span></div>
+                <div class="wallet-card" onclick="selectWallet(this)"><i class="fa-solid fa-wallet" style="color:#5f259f"></i><span>PhonePe Wallet</span></div>
+                <div class="wallet-card" onclick="selectWallet(this)"><i class="fa-solid fa-wallet" style="color:#ff6600"></i><span>Amazon Pay</span></div>
+                <div class="wallet-card" onclick="selectWallet(this)"><i class="fa-solid fa-wallet" style="color:#2563eb"></i><span>Airtel Money</span></div>
+            </div>
+            <button class="pay-btn" onclick="processPayment()">
+                <i class="fa-solid fa-lock"></i> Pay ₹4,119 via Wallet
+            </button>
+        </div>
+
+        <div class="trust-badges">
+            <span><i class="fa-solid fa-lock"></i> 256-bit SSL</span>
+            <span><i class="fa-solid fa-shield-halved"></i> PCI DSS Secure</span>
+            <span><i class="fa-brands fa-cc-visa"></i></span>
+            <span><i class="fa-brands fa-cc-mastercard"></i></span>
+            <span><i class="fa-brands fa-cc-rupay"></i></span>
+        </div>
+    </div>
+
+    <!-- ORDER SUMMARY -->
+    <div class="payment-right">
+        <div class="order-card">
+            <h3><i class="fa-solid fa-receipt"></i> Order Summary</h3>
+            <div class="order-flight">
+                <div class="order-route">
+                    <div><h4>DEL</h4><p>New Delhi</p></div>
+                    <div class="mid"><i class="fa-solid fa-plane"></i><span>2h 10m</span></div>
+                    <div><h4>DXB</h4><p>Dubai</p></div>
+                </div>
+                <div class="order-meta">
+                    <p><i class="fa-solid fa-calendar"></i> 10 Aug 2026 • 06:30 AM</p>
+                    <p><i class="fa-solid fa-plane-up"></i> IndiGo • Economy</p>
+                    <p><i class="fa-solid fa-user"></i> 1 Adult • Seat 5B</p>
+                </div>
+            </div>
+            <div class="order-prices">
+                <div class="o-row"><span>Base Fare</span><span>₹3,499</span></div>
+                <div class="o-row"><span>Taxes & Fees</span><span>₹620</span></div>
+                <div class="o-row total"><span>Total Amount</span><span>₹4,119</span></div>
+            </div>
+            <div class="promo-apply">
+                <input type="text" placeholder="Promo code" id="promoInput">
+                <button onclick="applyPromo()">Apply</button>
+            </div>
+            <div class="secure-note"><i class="fa-solid fa-lock"></i> Your payment is 100% secure & encrypted</div>
+        </div>
+    </div>
+
+</div>
+
+<!-- PAYMENT PROCESSING OVERLAY -->
+<div class="processing-overlay" id="processingOverlay">
+    <div class="processing-box">
+        <div class="spinner"></div>
+        <h3>Processing Payment...</h3>
+        <p>Please do not close this window</p>
+    </div>
+</div>
+
+<script src="js/payment.js"></script>
+</body>
+</html>

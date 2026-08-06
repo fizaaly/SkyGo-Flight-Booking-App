@@ -1,0 +1,121 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "fname": "Fiza",
+      "lname": "Khan",
+      "email": "fiza@skygo.com",
+      "phone": "9876543210",
+      "password": "$2a$10$3eVTTHGnvLSr8.FIX4m.M.msH/0qTGPQN4QIOAmuGI9NM8tKSNiHy",
+      "role": "user",
+      "createdAt": "2026-08-04T00:00:00.000Z"
+    },
+    {
+      "id": "2",
+      "fname": "Admin",
+      "lname": "SkyGo",
+      "email": "admin@skygo.com",
+      "phone": "9000000000",
+      "password": "$2a$10$6YwDmWfRWrISbrUrRAVmqOXwXc.4ERjmYinbk793IP77lStUOvP2q",
+      "role": "admin",
+      "createdAt": "2026-08-04T00:00:00.000Z"
+    },
+    {
+      "id": "3",
+      "fname": "Demo",
+      "lname": "User",
+      "email": "demo@skygo.com",
+      "phone": "9111111111",
+      "password": "$2a$10$J9e6KY6pBBt35FU2wbOCU.8w49ExJrqknT9ISBo/OT1ORwtBAVYae",
+      "role": "user",
+      "createdAt": "2026-08-04T00:00:00.000Z"
+    }
+  ],
+  "bookings": [],
+  "flights": [
+    {
+      "id": "f1",
+      "flightNumber": "6E-201",
+      "airline": "IndiGo",
+      "from": { "city": "New Delhi", "code": "DEL" },
+      "to":   { "city": "Mumbai",   "code": "BOM" },
+      "departureTime": "06:30",
+      "arrivalTime":   "08:40",
+      "duration": "2h 10m",
+      "date": "2026-08-10",
+      "stops": 0,
+      "price": { "economy": 3499, "business": 12999 },
+      "status": "scheduled"
+    },
+    {
+      "id": "f2",
+      "flightNumber": "AI-302",
+      "airline": "Air India",
+      "from": { "city": "Mumbai", "code": "BOM" },
+      "to":   { "city": "Dubai",  "code": "DXB" },
+      "departureTime": "14:00",
+      "arrivalTime":   "17:40",
+      "duration": "3h 40m",
+      "date": "2026-08-12",
+      "stops": 0,
+      "price": { "economy": 18999, "business": 49999 },
+      "status": "scheduled"
+    },
+    {
+      "id": "f3",
+      "flightNumber": "QP-405",
+      "airline": "Akasa Air",
+      "from": { "city": "Delhi", "code": "DEL" },
+      "to":   { "city": "Goa",   "code": "GOI" },
+      "departureTime": "10:15",
+      "arrivalTime":   "12:50",
+      "duration": "2h 35m",
+      "date": "2026-08-15",
+      "stops": 0,
+      "price": { "economy": 3899, "business": 8999 },
+      "status": "scheduled"
+    }
+  ],
+  "hotels": [
+    {
+      "id": "h1",
+      "name": "Royal Palace Hotel",
+      "category": "luxury",
+      "city": "New Delhi",
+      "country": "India",
+      "rating": 4.9,
+      "pricePerNight": 6999,
+      "amenities": ["WiFi", "Pool", "Spa", "Gym"]
+    },
+    {
+      "id": "h2",
+      "name": "Ocean View Resort",
+      "category": "resort",
+      "city": "Maldives",
+      "country": "Maldives",
+      "rating": 5.0,
+      "pricePerNight": 14999,
+      "amenities": ["WiFi", "Pool", "Diving", "Spa"]
+    }
+  ],
+  "offers": [
+    {
+      "id": "o1",
+      "title": "Domestic Flight Sale",
+      "couponCode": "SKYDOM25",
+      "discountType": "percent",
+      "discountValue": 25,
+      "category": "flight",
+      "expiresAt": "2026-08-31"
+    },
+    {
+      "id": "o2",
+      "title": "Luxury Hotel Stays",
+      "couponCode": "SKYLUX40",
+      "discountType": "percent",
+      "discountValue": 40,
+      "category": "hotel",
+      "expiresAt": "2026-09-10"
+    }
+  ]
+}

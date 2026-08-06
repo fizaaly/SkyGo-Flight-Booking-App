@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Trips | SkyGo</title>
+    <link rel="stylesheet" href="css/mytrips.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="logo"><img src="images/logo/logo 1.png" alt="SkyGo"><span>SkyGo</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="flights.html">Flights</a></li>
+            <li><a href="hotels.html">Hotels</a></li>
+            <li><a href="cabs.html">Cabs</a></li>
+            <li><a href="offers.html">Offers</a></li>
+            <li><a href="mytrips.html" class="active">My Trips</a></li>
+        </ul>
+        <div class="nav-btn">
+            <button onclick="location.href='login.html'" class="login-btn">Login</button>
+            <button onclick="location.href='signup.html'" class="signup-btn">Sign Up</button>
+        </div>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="trips-hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1><i class="fa-solid fa-suitcase-rolling"></i> My Trips</h1>
+        <p>Manage and track all your upcoming & past bookings in one place.</p>
+        <div class="trip-stats" id="tripStats">
+            <div class="tstat"><span id="totalTrips">0</span><p>Total Trips</p></div>
+            <div class="tstat"><span id="upcomingTrips">0</span><p>Upcoming</p></div>
+            <div class="tstat"><span id="completedTrips">0</span><p>Completed</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- FILTER TABS -->
+<section class="trips-filter">
+    <div class="filter-row">
+        <button class="f-tab active" data-status="all">All Bookings</button>
+        <button class="f-tab" data-status="upcoming">Upcoming</button>
+        <button class="f-tab" data-status="completed">Completed</button>
+        <button class="f-tab" data-status="cancelled">Cancelled</button>
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Search by booking ID or city..." id="tripSearch">
+        </div>
+    </div>
+</section>
+
+<!-- TRIPS LIST -->
+<section class="trips-section">
+    <div class="trips-container" id="tripsContainer">
+        <!-- JS populated -->
+    </div>
+    <div class="empty-state" id="emptyState" style="display:none;">
+        <i class="fa-solid fa-plane-slash"></i>
+        <h3>No trips found</h3>
+        <p>Start exploring and book your dream vacation!</p>
+        <button onclick="location.href='flights.html'">Book a Flight <i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+</section>
+
+<!-- QUICK ACTIONS -->
+<section class="quick-actions">
+    <h2>Plan Your Next Trip</h2>
+    <div class="qa-grid">
+        <div class="qa-card" onclick="location.href='flights.html'"><i class="fa-solid fa-plane"></i><h3>Book Flights</h3><p>Search & book flights to 150+ destinations</p></div>
+        <div class="qa-card" onclick="location.href='hotels.html'"><i class="fa-solid fa-hotel"></i><h3>Book Hotels</h3><p>Find premium stays at the best prices</p></div>
+        <div class="qa-card" onclick="location.href='cabs.html'"><i class="fa-solid fa-car"></i><h3>Book Cabs</h3><p>Airport transfers & city rides</p></div>
+        <div class="qa-card" onclick="location.href='offers.html'"><i class="fa-solid fa-tags"></i><h3>View Offers</h3><p>Exclusive deals and promo codes</p></div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-grid">
+        <div><img src="images/logo/logo 1.png" width="50" alt=""><h2>SkyGo</h2><p>Your trusted travel partner.</p></div>
+        <div><h3>Quick Links</h3><a href="index.html">Home</a><a href="flights.html">Flights</a><a href="hotels.html">Hotels</a><a href="offers.html">Offers</a></div>
+        <div><h3>Support</h3><a href="#">Help Center</a><a href="#">Privacy Policy</a><a href="#">Contact</a></div>
+        <div><h3>Follow Us</h3><div class="social-row"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-x-twitter"></i></a></div></div>
+    </div>
+    <hr><p class="copy">© 2026 SkyGo. All Rights Reserved.</p>
+</footer>
+
+<script src="js/mytrips.js"></script>
+</body>
+</html>

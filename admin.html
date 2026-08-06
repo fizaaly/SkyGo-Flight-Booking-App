@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SkyGo Admin</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#0f172a;color:#e2e8f0;min-height:100vh;}
+
+/* ── LOGIN SCREEN ── */
+#loginScreen{
+  display:flex;align-items:center;justify-content:center;
+  min-height:100vh;
+  background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 50%,#0c2461 100%);
+  position:relative;overflow:hidden;
+}
+#loginScreen::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(ellipse at 30% 40%,rgba(37,99,235,.2) 0%,transparent 60%),
+             radial-gradient(ellipse at 80% 70%,rgba(255,213,79,.08) 0%,transparent 50%);
+}
+.login-box{
+  background:rgba(255,255,255,.07);backdrop-filter:blur(24px);
+  border:1px solid rgba(255,255,255,.15);border-radius:28px;
+  padding:48px 44px;width:420px;
+  box-shadow:0 30px 70px rgba(0,0,0,.4);
+  position:relative;z-index:1;
+  animation:fadeUp .8s ease;
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+.login-brand{text-align:center;margin-bottom:32px;}
+.login-brand img{width:56px;height:56px;object-fit:contain;margin-bottom:12px;}
+.login-brand h1{font-size:26px;font-weight:800;background:linear-gradient(135deg,#ffd54f,#ffb703);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.login-brand p{font-size:13px;color:rgba(255,255,255,.5);margin-top:4px;}
+.admin-badge{display:inline-block;padding:5px 14px;background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.3);border-radius:20px;color:#f87171;font-size:12px;font-weight:600;margin-bottom:28px;}
+.inp-group{margin-bottom:18px;}
+.inp-group label{display:block;font-size:13px;color:rgba(255,255,255,.7);margin-bottom:7px;font-weight:500;}
+.inp-wrap{position:relative;display:flex;align-items:center;}
+.inp-wrap i{position:absolute;left:15px;color:rgba(255,255,255,.35);font-size:15px;pointer-events:none;}
+.inp-wrap input{
+  width:100%;padding:14px 14px 14px 44px;
+  background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.15);
+  border-radius:12px;color:#fff;font-size:14px;outline:none;
+  font-family:'Poppins',sans-serif;transition:.3s;
+}
+.inp-wrap input:focus{border-color:#ffd54f;background:rgba(255,213,79,.06);}
+.inp-wrap input::placeholder{color:rgba(255,255,255,.3);}
+.toggle-eye{position:absolute;right:14px;left:auto;cursor:pointer;pointer-events:all !important;}
+.login-submit{
+  width:100%;padding:15px;border:none;border-radius:12px;
+  background:linear-gradient(135deg,#ffd54f,#ffb703);
+  color:#111;font-size:15px;font-weight:700;cursor:pointer;
+  font-family:'Poppins',sans-serif;transition:.35s;margin-top:8px;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+}
+.login-submit:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(255,183,3,.4);}
+.error-msg{background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.3);border-radius:10px;
+  padding:12px 16px;color:#f87171;font-size:13px;margin-bottom:16px;display:none;
+  align-items:center;gap:8px;}
+.hint-box{margin-top:22px;padding:14px;background:rgba(255,255,255,.05);border-radius:12px;border:1px solid rgba(255,255,255,.08);}
+.hint-box p{font-size:12px;color:rgba(255,255,255,.45);text-align:center;margin-bottom:8px;}
+.hint-row{display:flex;justify-content:space-between;font-size:12px;}
+.hint-row span{color:rgba(255,255,255,.55);}
+.hint-row strong{color:#ffd54f;}
+
+/* ── DASHBOARD ── */
+#dashboard{display:none;min-height:100vh;display:none;}
+.layout{display:flex;}
+.sidebar{width:250px;background:#1e293b;height:100vh;position:fixed;left:0;top:0;
+  display:flex;flex-direction:column;border-right:1px solid rgba(255,255,255,.07);}
+.sb-logo{padding:24px 20px;display:flex;align-items:center;gap:12px;border-bottom:1px solid rgba(255,255,255,.07);}
+.sb-logo img{width:38px;height:38px;object-fit:contain;}
+.sb-logo div h2{font-size:20px;font-weight:800;background:linear-gradient(135deg,#ffd54f,#ffb703);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.sb-logo div span{font-size:11px;color:#475569;}
+.sb-menu{flex:1;padding:16px 0;overflow-y:auto;}
+.sb-section{padding:14px 20px 6px;font-size:10px;color:#475569;text-transform:uppercase;letter-spacing:1px;}
+.sb-item{display:flex;align-items:center;gap:10px;padding:12px 20px;cursor:pointer;
+  transition:.3s;color:#94a3b8;font-size:13px;font-weight:500;border-left:3px solid transparent;}
+.sb-item:hover,.sb-item.active{background:rgba(37,99,235,.12);color:#fff;border-left-color:#2563eb;}
+.sb-item i{width:18px;text-align:center;}
+.sb-bottom{padding:16px 20px;border-top:1px solid rgba(255,255,255,.07);}
+.admin-info{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.admin-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#ffd54f,#ffb703);
+  display:flex;align-items:center;justify-content:center;font-weight:700;color:#111;font-size:14px;}
+.admin-info div strong{display:block;color:#fff;font-size:13px;}
+.admin-info div span{color:#64748b;font-size:11px;}
+.logout-btn{width:100%;padding:10px;border:1px solid rgba(255,255,255,.1);border-radius:10px;
+  background:transparent;color:#94a3b8;font-size:13px;cursor:pointer;font-family:'Poppins',sans-serif;
+  display:flex;align-items:center;justify-content:center;gap:6px;transition:.3s;}
+.logout-btn:hover{background:rgba(239,68,68,.15);border-color:#ef4444;color:#f87171;}
+.server-dot{width:8px;height:8px;border-radius:50%;background:#ef4444;display:inline-block;margin-right:6px;animation:blink 2s infinite;}
+.server-dot.on{background:#22c55e;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
+
+.main{margin-left:250px;padding:28px;flex:1;}
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;}
+.topbar h2{font-size:24px;font-weight:700;color:#fff;}
+.refresh-btn{padding:9px 18px;border:none;border-radius:10px;
+  background:linear-gradient(135deg,#2563eb,#38bdf8);color:#fff;
+  font-weight:600;cursor:pointer;font-size:13px;font-family:'Poppins',sans-serif;
+  display:flex;align-items:center;gap:7px;transition:.3s;}
+.refresh-btn:hover{transform:translateY(-2px);}
+
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:28px;}
+.scard{border-radius:16px;padding:22px;background:linear-gradient(135deg,var(--a),var(--b));position:relative;overflow:hidden;}
+.scard::after{content:"";position:absolute;top:-15px;right:-15px;width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,.1);}
+.scard .ico{font-size:26px;margin-bottom:12px;}
+.scard .num{font-size:32px;font-weight:800;color:#fff;}
+.scard .lbl{font-size:12px;color:rgba(255,255,255,.7);margin-top:3px;}
+
+.panel{background:#1e293b;border-radius:16px;border:1px solid rgba(255,255,255,.07);margin-bottom:24px;overflow:hidden;}
+.panel-head{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;border-bottom:1px solid rgba(255,255,255,.07);}
+.panel-head h3{font-size:16px;font-weight:700;color:#fff;display:flex;align-items:center;gap:8px;}
+.panel-head h3 i{color:#38bdf8;}
+.panel-body{padding:22px;}
+table{width:100%;border-collapse:collapse;}
+th{text-align:left;padding:10px 14px;font-size:11px;font-weight:600;color:#64748b;
+  text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid rgba(255,255,255,.06);}
+td{padding:13px 14px;font-size:13px;color:#cbd5e1;border-bottom:1px solid rgba(255,255,255,.04);}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:rgba(255,255,255,.02);}
+.badge{display:inline-flex;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600;}
+.bg{background:#dcfce7;color:#16a34a;}
+.bb{background:#dbeafe;color:#2563eb;}
+.bw{background:#fef9c3;color:#ca8a04;}
+.br{background:#fef2f2;color:#dc2626;}
+.bp{background:#f3e8ff;color:#7c3aed;}
+
+.pg{display:none;}
+.pg.active{display:block;}
+.empty{text-align:center;padding:48px;color:#475569;}
+.empty i{font-size:44px;margin-bottom:14px;display:block;color:#334155;}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ LOGIN SCREEN ═══════════════════ -->
+<div id="loginScreen">
+  <div class="login-box">
+    <div class="login-brand">
+      <img src="images/logo/logo 1.png" alt="SkyGo">
+      <h1>SkyGo Admin</h1>
+      <p>Backend Control Panel</p>
+    </div>
+    <div style="text-align:center;margin-bottom:22px;">
+      <span class="admin-badge"><i class="fa-solid fa-shield-halved"></i> Admin Access Only</span>
+    </div>
+    <div class="error-msg" id="loginError"><i class="fa-solid fa-circle-exclamation"></i><span id="errorText"></span></div>
+    <div class="inp-group">
+      <label>Admin Email</label>
+      <div class="inp-wrap">
+        <i class="fa-solid fa-envelope"></i>
+        <input type="email" id="adminEmail" placeholder="admin@skygo.com" value="admin@skygo.com">
+      </div>
+    </div>
+    <div class="inp-group">
+      <label>Password</label>
+      <div class="inp-wrap">
+        <i class="fa-solid fa-lock"></i>
+        <input type="password" id="adminPass" placeholder="Enter password" value="admin123">
+        <i class="fa-solid fa-eye toggle-eye" id="eyeToggle"></i>
+      </div>
+    </div>
+    <button class="login-submit" id="loginSubmitBtn" onclick="doAdminLogin()">
+      <i class="fa-solid fa-right-to-bracket"></i> Login to Dashboard
+    </button>
+    <div class="hint-box">
+      <p>Demo Credentials</p>
+      <div class="hint-row"><span>Email:</span><strong>admin@skygo.com</strong></div>
+      <div class="hint-row" style="margin-top:4px"><span>Password:</span><strong>admin123</strong></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ DASHBOARD ═══════════════════ -->
+<div id="dashboard">
+  <div class="layout">
+    <div class="sidebar">
+      <div class="sb-logo">
+        <img src="images/logo/logo 1.png" alt="">
+        <div><h2>SkyGo</h2><span>Admin Panel</span></div>
+      </div>
+      <nav class="sb-menu">
+        <div class="sb-section">Overview</div>
+        <div class="sb-item active" onclick="showPg('overview',this)"><i class="fa-solid fa-gauge"></i> Dashboard</div>
+        <div class="sb-section">Data</div>
+        <div class="sb-item" onclick="showPg('users',this)"><i class="fa-solid fa-users"></i> Users</div>
+        <div class="sb-item" onclick="showPg('flights',this)"><i class="fa-solid fa-plane"></i> Flights</div>
+        <div class="sb-item" onclick="showPg('hotels',this)"><i class="fa-solid fa-hotel"></i> Hotels</div>
+        <div class="sb-item" onclick="showPg('cabs',this)"><i class="fa-solid fa-car"></i> Cabs</div>
+        <div class="sb-item" onclick="showPg('offers',this)"><i class="fa-solid fa-tags"></i> Offers</div>
+        <div class="sb-item" onclick="showPg('bookings',this)"><i class="fa-solid fa-ticket"></i> Bookings</div>
+        <div class="sb-section">Other</div>
+        <div class="sb-item" onclick="window.open('index.html')"><i class="fa-solid fa-globe"></i> View Site</div>
+      </nav>
+      <div class="sb-bottom">
+        <div class="admin-info">
+          <div class="admin-avatar" id="adminAvatar">A</div>
+          <div><strong id="adminName">Admin</strong><span id="serverStatus"><span class="server-dot" id="sDot"></span>localhost:5000</span></div>
+        </div>
+        <button class="logout-btn" onclick="doLogout()"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+      </div>
+    </div>
+
+    <div class="main">
+
+      <!-- OVERVIEW -->
+      <div class="pg active" id="pg-overview">
+        <div class="topbar"><h2>📊 Dashboard</h2><button class="refresh-btn" onclick="loadAll()"><i class="fa-solid fa-rotate"></i> Refresh</button></div>
+        <div class="stats-row">
+          <div class="scard" style="--a:#1e40af;--b:#2563eb"><div class="ico">✈️</div><div class="num" id="s-flights">—</div><div class="lbl">Flights</div></div>
+          <div class="scard" style="--a:#065f46;--b:#059669"><div class="ico">🏨</div><div class="num" id="s-hotels">—</div><div class="lbl">Hotels</div></div>
+          <div class="scard" style="--a:#7c2d12;--b:#ea580c"><div class="ico">🚗</div><div class="num" id="s-cabs">—</div><div class="lbl">Cabs</div></div>
+          <div class="scard" style="--a:#4c1d95;--b:#7c3aed"><div class="ico">👥</div><div class="num" id="s-users">—</div><div class="lbl">Users</div></div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h3><i class="fa-solid fa-circle-check"></i> API Status</h3></div>
+          <div class="panel-body"><div id="apiStatus"></div></div>
+        </div>
+      </div>
+
+      <!-- USERS -->
+      <div class="pg" id="pg-users">
+        <div class="topbar"><h2>👥 Users</h2><button class="refresh-btn" onclick="loadUsers()"><i class="fa-solid fa-rotate"></i> Refresh</button></div>
+        <div class="panel"><div class="panel-head"><h3><i class="fa-solid fa-users"></i> All Users</h3></div><div class="panel-body"><div id="tbl-users"></div></div></div>
+      </div>
+
+      <!-- FLIGHTS -->
+      <div class="pg" id="pg-flights">
+        <div class="topbar"><h2>✈️ Flights</h2><button class="refresh-btn" onclick="loadFlights()"><i class="fa-solid fa-rotate"></i> Refresh</button></div>
+        <div class="panel"><div class="panel-head"><h3><i class="fa-solid fa-plane"></i> All Flights</h3></div><div class="panel-body"><div id="tbl-flights"></div></div></div>
+      </div>
+
+      <!-- HOTELS -->
+      <div class="pg" id="pg-hotels">
+        <div class="topbar"><h2>🏨 Hotels</h2><button class="refresh-btn" onclick="loadHotels()"><i class="fa-solid fa-rotate"></i> Refresh</button></div>
+        <div class="panel"><div class="panel-head"><h3><i class="fa-solid fa-hotel"></i> All Hotels</h3></div><div class="panel-body"><div id="tbl-hotels"></div></div></div>
+      </div>
+
+      <!-- CABS -->
+      <div class="pg" id="pg-cabs">
+        <div class="topbar"><h2>🚗 Cabs</h2><button class="refresh-btn" onclick="loadCabs()"><i class="fa-solid fa-rotate"></i> Refresh</button></div>
+        <div class="panel"><div class="panel-head"><h3><i class="fa-solid fa-car"></i> Cab Types</h3></div><div class="panel-body"><div id="tbl-cabs"></div></div></div>
+      </div>
+
+      <!-- OFFERS -->
+      <div class="pg" id="pg-offers">
+        <div class="topbar"><h2>🎁 Offers</h2><button class="refresh-btn" onclick="loadOffers()"><i class="fa-solid fa-rotate"></i> Refresh</button></div>
+        <div class="panel"><div class="panel-head"><h3><i class="fa-solid fa-tags"></i> All Offers</h3></div><div class="panel-body"><div id="tbl-offers"></div></div></div>
+      </div>
+
+      <!-- BOOKINGS -->
+      <div class="pg" id="pg-bookings">
+        <div class="topbar"><h2>🎫 Bookings</h2><button class="refresh-btn" onclick="loadBookings()"><i class="fa-solid fa-rotate"></i> Refresh</button></div>
+        <div class="panel"><div class="panel-head"><h3><i class="fa-solid fa-ticket"></i> All Bookings</h3></div><div class="panel-body"><div id="tbl-bookings"></div></div></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+const API = "http://localhost:5000/api";
+
+// ── Eye toggle ────────────────────────────────────────────
+document.getElementById("eyeToggle").addEventListener("click", () => {
+  const inp = document.getElementById("adminPass");
+  inp.type = inp.type === "password" ? "text" : "password";
+  document.getElementById("eyeToggle").className = inp.type === "password"
+    ? "fa-solid fa-eye toggle-eye" : "fa-solid fa-eye-slash toggle-eye";
+});
+
+// Enter key login
+document.getElementById("adminPass").addEventListener("keydown", e => {
+  if (e.key === "Enter") doAdminLogin();
+});
+
+// ── Admin Login ───────────────────────────────────────────
+async function doAdminLogin() {
+  const email = document.getElementById("adminEmail").value.trim();
+  const pass  = document.getElementById("adminPass").value;
+  const btn   = document.getElementById("loginSubmitBtn");
+  const errBox= document.getElementById("loginError");
+  const errTxt= document.getElementById("errorText");
+
+  errBox.style.display = "none";
+  btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Verifying...';
+  btn.disabled  = true;
+
+  try {
+    const res  = await fetch(`${API}/auth/login`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password: pass }),
+    });
+    const data = await res.json();
+
+    if (!res.ok) throw new Error(data.message || "Login failed");
+
+    if (data.user.role !== "admin") {
+      throw new Error("Access denied — Admin account required");
+    }
+
+    // Save token + user
+    localStorage.setItem("skygo_admin_token", data.token);
+    localStorage.setItem("skygo_admin_user",  JSON.stringify(data.user));
+
+    // Show dashboard
+    document.getElementById("loginScreen").style.display  = "none";
+    document.getElementById("dashboard").style.display    = "block";
+    document.getElementById("adminName").innerText        = data.user.fname + " " + data.user.lname;
+    document.getElementById("adminAvatar").innerText      = data.user.fname[0].toUpperCase();
+
+    loadAll();
+    checkServer();
+    setInterval(checkServer, 15000);
+
+  } catch (err) {
+    errTxt.innerText      = err.message;
+    errBox.style.display  = "flex";
+    btn.innerHTML = '<i class="fa-solid fa-right-to-bracket"></i> Login to Dashboard';
+    btn.disabled  = false;
+  }
+}
+
+// ── Logout ────────────────────────────────────────────────
+function doLogout() {
+  localStorage.removeItem("skygo_admin_token");
+  localStorage.removeItem("skygo_admin_user");
+  document.getElementById("dashboard").style.display   = "none";
+  document.getElementById("loginScreen").style.display = "flex";
+  document.getElementById("adminPass").value = "";
+}
+
+// ── Auto-login if token exists ────────────────────────────
+window.addEventListener("load", () => {
+  const token = localStorage.getItem("skygo_admin_token");
+  const user  = JSON.parse(localStorage.getItem("skygo_admin_user") || "null");
+  if (token && user?.role === "admin") {
+    document.getElementById("loginScreen").style.display = "none";
+    document.getElementById("dashboard").style.display   = "block";
+    document.getElementById("adminName").innerText       = user.fname + " " + user.lname;
+    document.getElementById("adminAvatar").innerText     = user.fname[0].toUpperCase();
+    loadAll();
+    checkServer();
+    setInterval(checkServer, 15000);
+  }
+});
+
+// ── Navigation ────────────────────────────────────────────
+function showPg(name, el) {
+  document.querySelectorAll(".pg").forEach(p => p.classList.remove("active"));
+  document.querySelectorAll(".sb-item").forEach(i => i.classList.remove("active"));
+  document.getElementById("pg-" + name).classList.add("active");
+  el.classList.add("active");
+  if (name === "users")    loadUsers();
+  if (name === "flights")  loadFlights();
+  if (name === "hotels")   loadHotels();
+  if (name === "cabs")     loadCabs();
+  if (name === "offers")   loadOffers();
+  if (name === "bookings") loadBookings();
+}
+
+// ── API call ──────────────────────────────────────────────
+async function api(url, method="GET", body=null) {
+  const token = localStorage.getItem("skygo_admin_token");
+  const headers = { "Content-Type": "application/json" };
+  if (token) headers["Authorization"] = "Bearer " + token;
+  const cfg = { method, headers };
+  if (body) cfg.body = JSON.stringify(body);
+  try {
+    const res  = await fetch(API + url, cfg);
+    const data = await res.json();
+    return { ok: res.ok, data };
+  } catch (e) {
+    return { ok: false, data: { message: e.message } };
+  }
+}
+
+// ── Server check ──────────────────────────────────────────
+async function checkServer() {
+  const res = await api("/health");
+  const dot = document.getElementById("sDot");
+  if (dot) dot.className = "server-dot " + (res.ok ? "on" : "");
+}
+
+// ── Load all stats ────────────────────────────────────────
+async function loadAll() {
+  const [f, h, c, u] = await Promise.all([
+    api("/flights"), api("/hotels"), api("/cabs"), api("/auth/users"),
+  ]);
+  document.getElementById("s-flights").innerText = f.ok ? (f.data.count || 0) : "—";
+  document.getElementById("s-hotels").innerText  = h.ok ? (h.data.count || 0) : "—";
+  document.getElementById("s-cabs").innerText    = c.ok ? (c.data.count || 0) : "—";
+  document.getElementById("s-users").innerText   = u.ok ? (u.data.count || 0) : "—";
+
+  // API status table
+  const routes = [
+    ["POST", "/auth/login",    "Login",        "✅"],
+    ["POST", "/auth/register", "Register",     "✅"],
+    ["GET",  "/flights",       "Flights",      f.ok ? "✅" : "❌"],
+    ["GET",  "/hotels",        "Hotels",       h.ok ? "✅" : "❌"],
+    ["GET",  "/cabs",          "Cabs",         c.ok ? "✅" : "❌"],
+    ["GET",  "/offers",        "Offers",       "✅"],
+    ["POST", "/bookings",      "Create Booking","✅"],
+    ["GET",  "/bookings/my",   "My Trips",     "✅"],
+  ];
+  document.getElementById("apiStatus").innerHTML = `
+    <table><thead><tr><th>Method</th><th>Endpoint</th><th>Description</th><th>Status</th></tr></thead>
+    <tbody>${routes.map(r => `<tr>
+      <td><span class="badge ${r[0]==="GET"?"bg":"bb"}">${r[0]}</span></td>
+      <td style="font-family:monospace;color:#38bdf8">/api${r[1]}</td>
+      <td>${r[2]}</td><td>${r[3]}</td></tr>`).join("")}
+    </tbody></table>`;
+}
+
+// ── Users ─────────────────────────────────────────────────
+async function loadUsers() {
+  const res = await api("/auth/users");
+  const el  = document.getElementById("tbl-users");
+  if (!res.ok || !res.data.data?.length) { el.innerHTML = empty("No users yet"); return; }
+  el.innerHTML = `<table><thead><tr><th>Name</th><th>Email</th><th>Phone</th><th>Role</th><th>Joined</th></tr></thead>
+    <tbody>${res.data.data.map(u => `<tr>
+      <td style="font-weight:600;color:#fff">${u.fname} ${u.lname}</td>
+      <td>${u.email}</td><td>${u.phone || "—"}</td>
+      <td><span class="badge ${u.role==="admin"?"br":"bb"}">${u.role}</span></td>
+      <td>${new Date(u.createdAt).toLocaleDateString("en-IN")}</td>
+    </tr>`).join("")}</tbody></table>`;
+}
+
+// ── Flights ───────────────────────────────────────────────
+async function loadFlights() {
+  const res = await api("/flights");
+  const el  = document.getElementById("tbl-flights");
+  if (!res.ok || !res.data.data?.length) { el.innerHTML = empty("No flights in database"); return; }
+  el.innerHTML = `<table><thead><tr><th>Flight No</th><th>Airline</th><th>Route</th><th>Date</th><th>Timings</th><th>Economy</th><th>Stops</th></tr></thead>
+    <tbody>${res.data.data.map(f => `<tr>
+      <td style="color:#38bdf8;font-weight:700">${f.flightNumber}</td>
+      <td>${f.airline}</td>
+      <td><strong>${f.from.code}</strong> → <strong>${f.to.code}</strong></td>
+      <td>${f.date?.split("T")[0] || f.date}</td>
+      <td>${f.departureTime} → ${f.arrivalTime}</td>
+      <td style="color:#22c55e;font-weight:600">₹${f.price?.economy?.toLocaleString()}</td>
+      <td><span class="badge ${f.stops===0?"bg":"bw"}">${f.stops===0?"Non-stop":f.stops+" stop"}</span></td>
+    </tr>`).join("")}</tbody></table>`;
+}
+
+// ── Hotels ────────────────────────────────────────────────
+async function loadHotels() {
+  const res = await api("/hotels");
+  const el  = document.getElementById("tbl-hotels");
+  if (!res.ok || !res.data.data?.length) { el.innerHTML = empty("No hotels in database"); return; }
+  el.innerHTML = `<table><thead><tr><th>Name</th><th>Category</th><th>City</th><th>Rating</th><th>Price/Night</th></tr></thead>
+    <tbody>${res.data.data.map(h => `<tr>
+      <td style="font-weight:600;color:#fff">${h.name}</td>
+      <td><span class="badge bp">${h.category}</span></td>
+      <td>${h.city || h.location?.city}</td>
+      <td style="color:#fbbf24">★ ${h.rating}</td>
+      <td style="color:#22c55e;font-weight:600">₹${h.pricePerNight?.toLocaleString()}</td>
+    </tr>`).join("")}</tbody></table>`;
+}
+
+// ── Cabs ──────────────────────────────────────────────────
+async function loadCabs() {
+  const res = await api("/cabs");
+  const el  = document.getElementById("tbl-cabs");
+  if (!res.ok || !res.data.data?.length) { el.innerHTML = empty("No cabs in database"); return; }
+  el.innerHTML = `<table><thead><tr><th>Type</th><th>Name</th><th>Capacity</th><th>Base Price</th><th>Per KM</th><th>Popular</th></tr></thead>
+    <tbody>${res.data.data.map(c => `<tr>
+      <td><span class="badge bb">${c.type}</span></td>
+      <td style="font-weight:600;color:#fff">${c.name}</td>
+      <td>${c.capacity} seats</td>
+      <td style="color:#22c55e;font-weight:600">₹${c.basePrice}</td>
+      <td>₹${c.pricePerKm}/km</td>
+      <td>${c.popular ? "⭐ Yes" : "No"}</td>
+    </tr>`).join("")}</tbody></table>`;
+}
+
+// ── Offers ────────────────────────────────────────────────
+async function loadOffers() {
+  const res = await api("/offers");
+  const el  = document.getElementById("tbl-offers");
+  if (!res.ok || !res.data.data?.length) { el.innerHTML = empty("No offers in database"); return; }
+  el.innerHTML = `<table><thead><tr><th>Title</th><th>Coupon</th><th>Category</th><th>Discount</th><th>Expires</th></tr></thead>
+    <tbody>${res.data.data.map(o => `<tr>
+      <td style="font-weight:600;color:#fff">${o.title}</td>
+      <td style="font-family:monospace;color:#ffd54f;font-weight:700">${o.couponCode}</td>
+      <td><span class="badge bb">${o.category}</span></td>
+      <td style="color:#22c55e;font-weight:600">${o.discountType==="percent" ? o.discountValue+"%" : "₹"+o.discountValue}</td>
+      <td>${o.expiresAt?.split("T")[0] || o.expiresAt}</td>
+    </tr>`).join("")}</tbody></table>`;
+}
+
+// ── Bookings ──────────────────────────────────────────────
+async function loadBookings() {
+  const res = await api("/bookings");
+  const el  = document.getElementById("tbl-bookings");
+  if (!res.ok || !res.data.data?.length) { el.innerHTML = empty("No bookings yet"); return; }
+  el.innerHTML = `<table><thead><tr><th>Booking ID</th><th>Type</th><th>Amount</th><th>Status</th><th>Date</th></tr></thead>
+    <tbody>${res.data.data.map(b => `<tr>
+      <td style="font-family:monospace;color:#38bdf8">${b.id}</td>
+      <td><span class="badge bb">${b.type || "flight"}</span></td>
+      <td style="color:#22c55e;font-weight:600">₹${b.totalAmount?.toLocaleString() || "—"}</td>
+      <td><span class="badge ${b.status==="upcoming"?"bg":b.status==="cancelled"?"br":"bw"}">${b.status}</span></td>
+      <td>${b.createdAt?.split("T")[0]}</td>
+    </tr>`).join("")}</tbody></table>`;
+}
+
+function empty(msg) {
+  return `<div class="empty"><i>📭</i><p>${msg}</p></div>`;
+}
+</script>
+</body>
+</html>

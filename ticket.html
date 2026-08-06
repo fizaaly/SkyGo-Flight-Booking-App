@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Ticket | SkyGo</title>
+    <link rel="stylesheet" href="css/ticket.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+<div class="ticket-page">
+
+    <!-- SUCCESS HEADER -->
+    <div class="success-header">
+        <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+        <h1>Booking Confirmed! 🎉</h1>
+        <p>Your flight has been successfully booked. Check your email for details.</p>
+        <div class="booking-id">Booking ID: <strong id="bookingId">SKY-XXXXXX</strong></div>
+    </div>
+
+    <!-- TICKET CARD -->
+    <div class="ticket-wrap">
+        <div class="ticket-card" id="ticketCard">
+
+            <!-- TICKET TOP -->
+            <div class="ticket-top">
+                <div class="airline-info">
+                    <img src="images/logo/logo 1.png" alt="SkyGo" class="airline-logo">
+                    <div>
+                        <h3>SkyGo Airlines</h3>
+                        <span class="flight-num">Flight: SG-2406</span>
+                    </div>
+                </div>
+                <div class="ticket-status confirmed">✓ CONFIRMED</div>
+            </div>
+
+            <!-- ROUTE -->
+            <div class="ticket-route">
+                <div class="route-city">
+                    <h2>DEL</h2>
+                    <p>New Delhi</p>
+                    <span>Indira Gandhi Intl</span>
+                </div>
+                <div class="route-middle">
+                    <div class="plane-line">
+                        <div class="line-left"></div>
+                        <i class="fa-solid fa-plane"></i>
+                        <div class="line-right"></div>
+                    </div>
+                    <span class="duration">2h 10m • Non-Stop</span>
+                </div>
+                <div class="route-city right">
+                    <h2>DXB</h2>
+                    <p>Dubai</p>
+                    <span>Dubai Intl Airport</span>
+                </div>
+            </div>
+
+            <!-- DETAILS GRID -->
+            <div class="ticket-details">
+                <div class="detail-box"><label>Date</label><span>10 Aug 2026</span></div>
+                <div class="detail-box"><label>Departure</label><span>06:30 AM</span></div>
+                <div class="detail-box"><label>Arrival</label><span>08:40 AM</span></div>
+                <div class="detail-box"><label>Seat</label><span>5B</span></div>
+                <div class="detail-box"><label>Class</label><span>Economy</span></div>
+                <div class="detail-box"><label>Baggage</label><span>15 kg</span></div>
+                <div class="detail-box"><label>Passenger</label><span id="passengerName">Fiza Khan</span></div>
+                <div class="detail-box"><label>Amount Paid</label><span>₹4,119</span></div>
+            </div>
+
+            <!-- DIVIDER (ticket tear) -->
+            <div class="ticket-tear">
+                <div class="tear-circle left"></div>
+                <div class="tear-dots"></div>
+                <div class="tear-circle right"></div>
+            </div>
+
+            <!-- BARCODE SECTION -->
+            <div class="ticket-barcode">
+                <div class="barcode-lines" id="barcode"></div>
+                <p class="barcode-text" id="barcodeText">SKY-XXXXXX • DEL → DXB • 10 AUG 2026</p>
+                <div class="qr-placeholder"><i class="fa-solid fa-qrcode"></i></div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ACTION BUTTONS -->
+    <div class="ticket-actions">
+        <button class="action-btn download" onclick="downloadTicket()">
+            <i class="fa-solid fa-download"></i> Download Ticket
+        </button>
+        <button class="action-btn share" onclick="shareTicket()">
+            <i class="fa-solid fa-share-nodes"></i> Share
+        </button>
+        <button class="action-btn trips" onclick="location.href='mytrips.html'">
+            <i class="fa-solid fa-suitcase-rolling"></i> My Trips
+        </button>
+        <button class="action-btn home" onclick="location.href='index.html'">
+            <i class="fa-solid fa-house"></i> Back to Home
+        </button>
+    </div>
+
+    <!-- WHAT'S NEXT -->
+    <div class="whats-next">
+        <h2>What's Next?</h2>
+        <div class="next-steps">
+            <div class="next-step"><i class="fa-solid fa-envelope"></i><div><h4>Check Your Email</h4><p>Booking confirmation sent to your email.</p></div></div>
+            <div class="next-step"><i class="fa-solid fa-mobile-screen-button"></i><div><h4>Web Check-in</h4><p>Opens 24 hours before departure.</p></div></div>
+            <div class="next-step"><i class="fa-solid fa-clock"></i><div><h4>Reach Early</h4><p>Arrive at the airport 2 hours before flight.</p></div></div>
+            <div class="next-step"><i class="fa-solid fa-id-card"></i><div><h4>Carry Documents</h4><p>Valid ID/Passport required at check-in.</p></div></div>
+        </div>
+    </div>
+
+</div>
+
+<script src="js/ticket.js"></script>
+</body>
+</html>
