@@ -76,15 +76,11 @@ Then open: `http://localhost:5000`
 
 ---
 
-## 🔐 Login Credentials
+## 🔐 Login
 
-| Role | Email | Password |
-|------|-------|----------|
-| Admin | admin@skygo.com | admin123 |
-| User | fiza@skygo.com | fiza123 |
-| Demo | demo@skygo.com | demo123 |
-
-Admin Dashboard: `http://localhost:5000/admin.html`
+- Signup karo ya existing account se login karo
+- Admin dashboard access ke liye admin credentials required hain
+- Admin Dashboard: `http://localhost:5000/admin.html`
 
 ---
 
